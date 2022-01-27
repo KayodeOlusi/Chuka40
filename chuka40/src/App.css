@@ -1,39 +1,42 @@
-.App {
+/***************GUEST HOMEPAGE*************/
+
+.guest {
+  background-color: #050726;
+  height: 100vh;
+}
+
+.guest .container .homepage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guest .container .homepage img {
+  height: 300px;
+  margin-top: 30px;
+}
+
+.guest .container .homepage-text .text-header {
+  margin-top: 60px;
+  color: white;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.guest .container .homepage-text .text-desc {
+  color: whitesmoke;
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+.guest .container .homepage-btn {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 90px;
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.guest .container .homepage-btn .homepage-button  {
+  background-color: yellow;
+  padding: 10px 100px;
+  border-radius: 10px;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
-}
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
