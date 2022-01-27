@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,800&display=swap');
+
 /***************GUEST HOMEPAGE*************/
+.App {
+  font-family: 'Montserrat', sans-serif;
+}
 
 .guest {
   background-color: #050726;
@@ -12,7 +17,7 @@
 }
 
 .guest .container .homepage img {
-  height: 300px;
+  height: 250px;
   margin-top: 30px;
 }
 
@@ -20,23 +25,55 @@
   margin-top: 60px;
   color: white;
   text-align: center;
+  font-weight: 800;
 }
 
 .guest .container .homepage-text .text-desc {
-  color: whitesmoke;
-  margin-top: 20px;
+  color: #d4d4d4;
+  font-size: 14px;
+  padding: 30px;
 }
 
 .guest .container .homepage-btn {
   margin: 0 auto;
   text-align: center;
-  margin-top: 90px;
+  margin-top: 40px;
 }
 
 .guest .container .homepage-btn .homepage-button  {
-  background-color: yellow;
-  padding: 10px 100px;
-  border-radius: 10px;
+  background-color: #eb1e25;
+  padding: 10px 120px;
+  border-radius: 47px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
 }
 
+/***********Media Queries******************/
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+  .guest .container .homepage img {
+    height: 220px;
+  }
 
+  .guest .container .homepage-btn .homepage-button {
+    padding: 12px 86px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) { 
+  .guest .container .homepage img {
+    height: 220px;
+  }
+} 
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) { 
+  .guest .container .homepage img {
+    height: 220px !important;
+  }
+}
+
+@media only screen and (min-width: 1025px) { 
+  .guest .container .homepage-btn {
+    margin-top: 20px;
+  }
+}

@@ -14,13 +14,13 @@ const Guest = () => {
                             @ Big 40!
                         </h2>
                     </div>
-                    <div className="text-desc text-center">
+                    <div className="text-desc text-center mt-1">
                         <p>We hope you have an amazing time here</p>
                     </div>
                 </div>
                 <div className="homepage-btn">
                     <div className="btn homepage-button">
-                        Get Started
+                        Enter Table Number
                     </div>
                 </div>
             </div>
