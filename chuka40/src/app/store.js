@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import guestReducer from '../features/guestSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    guest: guestReducer,
   },
 });

@@ -1,6 +1,13 @@
 import Image1 from "../../assets/Image1.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Guest = () => {
+    const navigate = useNavigate();
+
+    const showTheModal = () => {
+        navigate("/modal");
+    }
+
     return ( 
         <div className = "guest">
             <div className = "container">
@@ -18,7 +25,7 @@ const Guest = () => {
                         <p>We hope you have an amazing time here</p>
                     </div>
                 </div>
-                <div className="homepage-btn">
+                <div className="homepage-btn" onClick = { showTheModal }>
                     <div className="btn homepage-button">
                         Enter Table Number
                     </div>
@@ -26,6 +33,6 @@ const Guest = () => {
             </div>
         </div>
      );
-}
+    }
  
 export default Guest;

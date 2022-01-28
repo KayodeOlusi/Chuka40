@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,800&display=swap');
 
-/***************GUEST HOMEPAGE*************/
+/***************Guest Component*************/
 .App {
   font-family: 'Montserrat', sans-serif;
 }
@@ -8,6 +8,7 @@
 .guest {
   background-color: #050726;
   height: 100vh;
+  position: relative;
 }
 
 .guest .container .homepage {
@@ -37,7 +38,6 @@
 .guest .container .homepage-btn {
   margin: 0 auto;
   text-align: center;
-  margin-top: 40px;
 }
 
 .guest .container .homepage-btn .homepage-button  {
@@ -49,6 +49,162 @@
   font-weight: 600;
 }
 
+/*********************Modal Component***********/
+.the-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.the-modal .modal-container {
+  background-color: #f4f4f4;
+  padding: 5px;
+  width: 35%; /*change the size of the modal box here*/
+  height: 300px; /*change the height of the modal box here*/
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 13% auto;
+  position: relative;
+}
+
+.the-modal .modal-container .header {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.the-modal .modal-container .contents {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.the-modal .modal-container .contents form {
+  margin-top: 50px;
+  padding: 10px;
+}
+
+.the-modal .modal-container .contents form input {
+  padding: 10px;
+  border-radius: 47px;
+  width: 320px;
+  font-size: 12px;
+  border: 0.1px solid gray;
+}
+
+.the-modal .modal-container .contents form .modal-button {
+  background-color: #eb1e25;
+  margin-top: 10px;
+  border-radius: 47px;
+  padding: 10px 70px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/****************Category Component*********************************/
+.categories .container .category-header {
+  margin-top: 30px;
+}
+
+.categories .container .category-header p  {
+  color: gray;
+}
+
+.categories .container .category-contents .nigerian {
+  background-color: #f4f4f4;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.categories .container .category-contents .continental {
+  background-color: #f4f4f4;
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.categories .container .category-contents .continental .texts, .categories .container .category-contents .nigerian .texts {
+  padding: 5px 50px;
+}
+
+.categories .container .category-contents img {
+  width: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/************************************Nigerian Dishes Component*******************/
+.nigeria {
+  position: relative;
+}
+
+.nigeria .container .nigeria-header {
+  margin-top: 30px;
+}
+
+.nigeria .container .nigeria-header p {
+  color: gray;
+}
+
+.nigeria .container .nigerian-meals {
+  margin-top: 10px;
+}
+
+.nigeria .container .nigerian-meals form .meals-list {
+  margin: 15px 0px;
+  background-color: #dddddd;
+  padding: 15px 40px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  color: black;
+}
+
+.nigeria .container .nigerian-meals form .meals-button {
+  background-color: #eb1e25;
+  color: white;
+  border-radius: 47px;
+  padding: 10px 80px;
+  margin-top: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /***********Media Queries******************/
 @media only screen and (min-width: 0px) and (max-width: 480px) {
   .guest .container .homepage img {
@@ -58,22 +214,205 @@
   .guest .container .homepage-btn .homepage-button {
     padding: 12px 86px;
   }
+
+  /*******************************/
+  .the-modal .modal-container {
+    margin: 45% auto;
+    width: 200px;
+  }
+
+  .the-modal .modal-container .header h3 {
+    font-size: 18px;
+  }
+
+  .the-modal .modal-container .header p {
+    font-size: 11px;
+  }
+
+  .the-modal .modal-container .contents form {
+    margin-top: 30px;
+  }
+
+  .the-modal .modal-container .contents form h6 {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .the-modal .modal-container .contents form input {
+    padding: 8px;
+    width: 160px;
+    font-size: 11px;
+  }
+
+  .the-modal .modal-container .contents form .modal-button {
+    margin-top: 20px;
+    padding: 8px 40px;
+    font-size: 12px;
+  }
+  /******************************/
+  .categories .container .category-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .categories .container .category-header p {
+    font-size: 13px;
+  }
+
+  .categories .container .category-contents img {
+    width: 100px;
+  }  
+
+  .categories .container .category-contents .continental .texts, .categories .container .category-contents .nigerian .texts {
+    padding: 5px 10px;
+  }
+
+  .categories .container .category-contents .nigerian .texts h3{
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .categories .container .category-contents .nigerian .texts h6 {
+    font-size: 12px;
+  }
+  
+  .categories .container .category-contents .continental .texts h3{
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .categories .container .category-contents .continental .texts h6 {
+    font-size: 12px;
+  }
+
+  /*******************************/
+  .nigeria .container .nigerian-meals form .meals-list {
+    font-size: 14px;
+  }
+
+  .nigeria .container .nigerian-meals form input[type = "checkbox"] {
+    height: 10px;
+    width: 10px;
+  }
+
+  .nigeria .container .nigerian-meals form .meals-button {
+    font-size: 12px !important;
+    padding: 10px 50px;
+  }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) { 
+  /**************************************/
   .guest .container .homepage img {
     height: 220px;
   }
+
+  /*************************************/
+  .the-modal .modal-container {
+    margin: 25% auto;
+    width: 200px;
+  }
+
+  .the-modal .modal-container .header h3 {
+    font-size: 18px;
+  }
+
+  .the-modal .modal-container .header p {
+    font-size: 11px;
+  }
+
+  .the-modal .modal-container .contents form {
+    margin-top: 30px;
+  }
+
+  .the-modal .modal-container .contents form h6 {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .the-modal .modal-container .contents form input {
+    padding: 8px;
+    width: 160px;
+    font-size: 11px;
+  }
+
+  .the-modal .modal-container .contents form .modal-button {
+    margin-top: 20px;
+    padding: 8px 40px;
+    font-size: 12px;
+  }
+
+  /*************************************************/
+  .categories .container .category-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .categories .container .category-header p {
+    font-size: 13px;
+  }
+
+  .categories .container .category-contents img {
+    width: 100px;
+  }  
+
+  .categories .container .category-contents .continental .texts, .categories .container .category-contents .nigerian .texts {
+    padding: 5px 10px;
+  }
+
+  .categories .container .category-contents .nigerian .texts h3{
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .categories .container .category-contents .nigerian .texts h6 {
+    font-size: 12px;
+  }
+  
+  .categories .container .category-contents .continental .texts h3{
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .categories .container .category-contents .continental .texts h6 {
+    font-size: 12px;
+  }
+
+  /**********************************************/
 } 
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) { 
   .guest .container .homepage img {
     height: 220px !important;
   }
-}
 
-@media only screen and (min-width: 1025px) { 
-  .guest .container .homepage-btn {
+  .the-modal .modal-container {
+    margin: 20% auto;
+    width: 300px;
+  }
+
+  .the-modal .modal-container .header p {
+    font-size: 13px;
+  }
+
+  .the-modal .modal-container .contents form {
+    margin-top: 30px;
+  }
+
+  .the-modal .modal-container .contents form h6 {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .the-modal .modal-container .contents form input {
+    padding: 8px;
+    width: 200px;
+    font-size: 11px;
+  }
+
+  .the-modal .modal-container .contents form .modal-button {
     margin-top: 20px;
+    padding: 8px 60px;
+    font-size: 12px;
   }
 }
