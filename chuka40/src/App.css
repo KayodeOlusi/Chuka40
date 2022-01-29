@@ -105,8 +105,13 @@
 }
 
 /****************Category Component*********************************/
+.categories {
+  background-color: #dddddd;
+  height: 100vh;
+}
+
 .categories .container .category-header {
-  margin-top: 30px;
+  padding-top: 30px;
 }
 
 .categories .container .category-header p  {
@@ -114,7 +119,7 @@
 }
 
 .categories .container .category-contents .nigerian {
-  background-color: #f4f4f4;
+  background-color: #fff;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -124,7 +129,7 @@
 
 .categories .container .category-contents .continental {
   background-color: #f4f4f4;
-  padding: 15px 10px;
+  padding: 20px 10px;
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -143,11 +148,12 @@
 
 /************************************Nigerian Dishes Component*******************/
 .nigeria {
-  position: relative;
+  background-color: #dddddd;
+  height: 100vh;
 }
 
 .nigeria .container .nigeria-header {
-  margin-top: 30px;
+  padding-top: 30px;
 }
 
 .nigeria .container .nigeria-header p {
@@ -160,7 +166,7 @@
 
 .checkbox {
   margin: 15px 0px;
-  background-color: #dddddd;
+  background-color: #fff;
   padding: 10px 30px;
   font-size: 20px;
   border-radius: 10px;
@@ -179,7 +185,7 @@
   font-size: 12px;
 }
 
-.nigeria .container .nigerian-meals form .meals-button {
+.nigeria .container .nigerian-meals .meals-button {
   background-color: #eb1e25;
   color: white;
   border-radius: 47px;
@@ -187,6 +193,82 @@
   margin-top: 100px;
 }
 
+/***************Order Component*****************************************/
+.order {
+  background-color: #dddddd;
+  height: 100vh;
+}
+
+.order .container .order-header {
+  padding-top: 30px;
+}
+
+.order .container .order-header p {
+  color: #424242;
+}
+
+.order .container .ordered-meals .ordered-food {
+  margin: 15px 0px;
+  background-color: #fff;
+  padding: 15px 30px;
+  border-radius: 10px;
+  color: black;
+}
+
+.order .container .ordered-meals .ordered-food h3 {
+  font-size: 18px;
+}
+
+.order .container .order-button .order-btn {
+  background-color: #eb1e25;
+  color: white;
+  border-radius: 47px;
+  padding: 10px 80px;
+  margin-top: 100px;
+}
+
+/*******************Update Component*****************************/
+.update {
+  background-color: #dddddd;
+  height: 100vh;
+}
+
+.update .update-header {
+  padding-top: 30px;
+}
+
+.update .container .update-status {
+  margin-top: 30px;
+}
+
+.update .container .update-status h4 {
+    font-size: 20px;
+}
+
+.update .container .update-status p {
+  font-size: 14px;
+  color: #424242;
+}
+
+.update .container .update-status .successful {
+  border-left : 3px solid green ;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.update .container .update-status .in-progress, .served {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-left: 3px solid #424242;
+}
+
+.update .container .order-again-btn {
+  background-color: #eb1e25;
+  color: white;
+  border-radius: 47px;
+  padding: 10px 80px;
+  margin-top: 100px;
+}
 
 
 
@@ -310,9 +392,38 @@
     width: 14px;
   }
 
-  .nigeria .container .nigerian-meals form .meals-button {
+  .nigeria .container .nigerian-meals .meals-button {
     font-size: 12px !important;
     padding: 10px 50px;
+  }
+
+/*************************************/
+  .update .container .update-header h3 {
+    font-size: 20px;
+  }
+
+  .update .container .update-header p {
+    font-size: 14px;
+  }
+
+  .update .container .update-status h4 {
+    font-size: 16px;
+  }
+
+  .update .container .update-status p {
+    font-size: 12px;
+    color: #424242;
+  }
+
+  .update .container .update-status .successful {
+    border-left : 3px solid green ;
+    padding: 8px 16px;
+    margin-bottom: 6px;
+  }
+
+  .update .container .update-status .in-progress, .served {
+    padding: 8px 16px;
+    margin-bottom: 20px;
   }
 }
 

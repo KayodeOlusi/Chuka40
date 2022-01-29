@@ -1,13 +1,43 @@
-import { Button } from "@mui/material";
 import CheckBox from "./CheckBox";
 import { db } from "../../../firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, query } from "firebase/firestore";
+import { Button } from "@mui/material";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { holdFoodTray } from "../../../features/guestSlice";
+import { useNavigate } from "react-router-dom";
 
 const Nigerian = () => {
-    const q = query(collection(db, "nigerian"))
+    const q = query(collection(db, "nigerian"));
     const [nigerianDishes] = useCollection(q);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const emptyTray = [];
+    const [checkState, setCheckState] = useState(Array(nigerianDishes?.docs.length).fill(false));
 
+    useEffect(() => {
+        setCheckState(Array(nigerianDishes?.docs.length).fill(false))
+    }, [nigerianDishes])
+
+    const onCheckStateChange = (position) => {
+        const updatedCheckState = checkState.map((value, index) => (
+            index === position ? !value : value
+        ))
+        setCheckState(updatedCheckState)
+    }
+
+    const addToTray = () => {
+        const trays = nigerianDishes?.docs.filter((_, index) => checkState[index])
+        trays.forEach(tray => {
+            emptyTray.push(tray.data().name)
+        })
+        dispatch(holdFoodTray({
+            foodTray: [...emptyTray]
+        }))
+        navigate("/category/nigerian/order");
+    }
+    
     return ( 
         <div className = "nigeria">
             <div className="container">
@@ -18,24 +48,24 @@ const Nigerian = () => {
                     <p>Please select a food from the menu</p>
                 </div>
                 <div className="nigerian-meals">
-                    <form>
                         {
-                            nigerianDishes?.docs.map(doc => (
+                            nigerianDishes?.docs.map((doc, index) => (
                                 <CheckBox
-                                     name = { doc.data().name }
-                                     key = { doc.id }
-                                     id = { doc.id }
-                                     quantity = { doc.data().quantity }
-                                     toppings = { doc.data().toppings }
+                                    name = { doc.data().name }
+                                    key = { doc.id }
+                                    id = { doc.id }
+                                    quantity = { doc.data().quantity }
+                                    toppings = { doc.data().toppings }
+                                    onChange= {() => onCheckStateChange(index)}
+                                    checked = { checkState[index] }
                                 />
                             ))
                         }
-                        <div className="meal-btn text-center">
-                            <Button type = "submit" className = "meals-button">
-                                Add to food tray
-                            </Button>
-                        </div>
-                    </form>
+                    <div className="meal-btn text-center"> 
+                        <Button type = "submit" className = "meals-button" onClick = { addToTray }>
+                            Add to food tray
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>
