@@ -1,6 +1,5 @@
-import React from 'react';
 import './App.css';
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom"
 import Guest from './components/guests/Guest';
 import GuestModal from './components/guests/GuestModal';
 import Categories from './components/guests/Categories';
@@ -8,6 +7,8 @@ import Nigerian from './components/guests/Nigerian/Nigerian';
 import Continental from './components/guests/Continental/Continental';
 import Order from './components/guests/Nigerian/Order';
 import Update from './components/guests/Nigerian/Update';
+import AdminLogin from './components/admin/AdminLogin';
+import AdminDashboard from './components/admin/AdminDashboard';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
             <Route path = "/category/continental" element = { <Continental /> } />
             <Route path = "/category/nigerian/order" element = { <Order /> } />
             <Route path = "/category/nigerian/order/update" element = { <Update /> } />
+            <Route path = "/admin" element = { <AdminLogin /> } />
+            <Route path = "/admin/dashboard" element = { <AdminDashboard /> } />
         </Routes>
     </div>
   );

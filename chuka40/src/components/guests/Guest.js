@@ -12,7 +12,7 @@ const Guest = () => {
         <div className = "guest">
             <div className = "container">
                 <div className = "homepage">
-                    <img src = { Image1 } alt = "" className = "homepage-image img-thumbnail img-responsive"  />
+                    <img src = { Image1 } alt = "guest" className = "homepage-image img-thumbnail img-responsive"  />
                 </div>
                 <div className="homepage-text">
                     <div className="text-header">

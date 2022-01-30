@@ -270,7 +270,95 @@
   margin-top: 100px;
 }
 
+/***********************************************Admin Side*******************************************************/
+.admin-login {
+  background-color: #050726;
+  height: 100vh;
+}
 
+.admin-login .container .homepage img {
+  height: 200px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.admin-login .container .admin-login-text .header h2 {
+  font-size: 20px;
+}
+
+.admin-login .container form input {
+  width: 350px;
+  padding: 10px 25px;
+  border: none;
+  font-size: 16px;
+  border-radius: 47px;
+}
+
+.admin-login .container form .admin-btn {
+  background-color: #eb1e25;
+  padding: 10px 120px;
+  border-radius: 47px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.admin-dashboard-panel {
+  background-color: #d4d4d4;
+  height: 100vh;
+}
+
+.admin-dashboard-panel .container .admin-dashboard-header {
+  padding: 15px 30px;
+}
+
+.admin-dashboard-panel .container .row1 {
+  padding: 10px;
+}
+
+.admin-dashboard-panel .container .row2 {
+  padding: 10px;
+}
+
+.admin-dashboard-panel .container .row1 .number-of-caterers {
+  background-color: #050726;
+  border-radius: 16px;
+  color: #dddddd;
+  padding: 20px;
+  border: none;
+}
+
+.admin-dashboard-panel .container .row1 .food-categories {
+  background-color: #971787;
+  border-radius: 16px;
+  color: #dddddd;
+  padding: 20px;
+  border: none;
+}
+
+.admin-dashboard-panel .container .row2 .food-menu-items {
+  background-color: #424dff;
+  padding: 20px;
+  color: #dddddd;
+  border-radius: 16px;
+  border: none;
+}
+
+.admin-dashboard-panel .container .row2 .total-orders {
+  background-color: #1bb10e;
+  padding: 20px;
+  color: #dddddd;
+  border-radius: 16px;
+  border: none;
+}
+
+.admin-dashboard-panel .container .admin-btn {
+  background-color: #eb1e25;
+  color: white;
+  border-radius: 47px;
+  padding: 10px 80px;
+  margin-top: 50px;
+}
 
 
 
