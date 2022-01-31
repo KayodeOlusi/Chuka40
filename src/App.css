@@ -175,7 +175,7 @@
 .checkbox {
   margin: 15px 0px;
   background-color: #fff;
-  padding: 3px 30px;
+  padding: 6px 30px;
   font-size: 20px;
   border-radius: 10px;
   color: black;
@@ -405,7 +405,7 @@
 @media only screen and (min-width: 0px) and (max-width: 480px) {
   .guest .container .homepage img {
     height: 240px;
-    margin-top: 120px;
+    margin-top: 90px;
   }
 
   .guest .container .homepage-text .text-header h2 {
@@ -503,7 +503,7 @@
   }
 
   .nigeria {
-    height: 80vh;
+    height: 85vh;
   }
 
   .nigeria .container .nigerian-meals .meals-button {
