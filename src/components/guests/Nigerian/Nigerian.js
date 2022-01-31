@@ -66,7 +66,7 @@ const Nigerian = () => {
                     </div>
                 </div>
             </div>
-            <div className="meal-btn text-center"> 
+            <div className="meal-btn text-center bg-danger"> 
                 <Button type = "submit" className = "meals-button" onClick = { addToTray }>
                     Add to food tray
                 </Button>

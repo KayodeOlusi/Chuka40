@@ -153,6 +153,7 @@
 .nigeria {
   background-color: #dddddd;
   height: 90vh;
+  position: relative;
   overflow-y: scroll;
 }
 
@@ -414,6 +415,7 @@
 
   .guest .container .homepage-btn .homepage-button {
     padding: 12px 76px;
+    bottom: 70px;
   }
 
   /*******************************/
@@ -502,13 +504,9 @@
     width: 14px;
   }
 
-  .nigeria {
-    height: 85vh;
-  }
-
   .nigeria .container .nigerian-meals .meals-button {
     font-size: 12px !important;
-    padding: 10px 50px;
+    padding: 10px 40px;
   }
 
 /*************************************/
