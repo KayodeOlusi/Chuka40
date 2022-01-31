@@ -3,7 +3,7 @@ const CheckBox = ({ name, quantity, toppings, id, ...rest }) => {
             <form className="checkbox mt-3">
                 <div className = "available">
                     <label htmlFor = { name }>{ name }</label>
-                    <input { ...rest } type = "checkbox" name = { name } id = { id } value = { name } />
+                    <input { ...rest } type = "checkbox" name = { name } id = { id } value = { name } className = "the-checkbox"/>
                 </div>
                 <div className="desc">
                     <p>{ toppings }</p>

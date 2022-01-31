@@ -39,15 +39,16 @@ const Nigerian = () => {
     }
     
     return ( 
-        <div className = "nigeria">
-            <div className="container">
-                <div className="nigeria-header">
-                    <h3>
-                        Nigerian Delicacies
-                    </h3>
-                    <p>Please select a food from the menu</p>
-                </div>
-                <div className="nigerian-meals">
+        <>
+            <div className = "nigeria">
+                <div className="container">
+                    <div className="nigeria-header">
+                        <h3>
+                            Nigerian Delicacies
+                        </h3>
+                        <p>Please select a food from the menu</p>
+                    </div>
+                    <div className="nigerian-meals">
                         {
                             nigerianDishes?.docs.map((doc, index) => (
                                 <CheckBox
@@ -61,14 +62,16 @@ const Nigerian = () => {
                                 />
                             ))
                         }
-                    <div className="meal-btn text-center"> 
-                        <Button type = "submit" className = "meals-button" onClick = { addToTray }>
-                            Add to food tray
-                        </Button>
+                    
                     </div>
                 </div>
             </div>
-        </div>
+            <div className="meal-btn text-center"> 
+                <Button type = "submit" className = "meals-button" onClick = { addToTray }>
+                    Add to food tray
+                </Button>
+            </div>
+        </>
      );
 }
  

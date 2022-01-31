@@ -3,6 +3,7 @@
 /***************Guest Component*************/
 .App {
   font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
 }
 
 .guest {
@@ -19,14 +20,14 @@
 
 .guest .container .homepage img {
   height: 250px;
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 .guest .container .homepage-text .text-header {
-  margin-top: 60px;
   color: white;
   text-align: center;
   font-weight: 800;
+  margin-top: 70px;
 }
 
 .guest .container .homepage-text .text-desc {
@@ -36,17 +37,20 @@
 }
 
 .guest .container .homepage-btn {
-  margin: 0 auto;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.guest .container .homepage-btn .homepage-button  {
+.guest .container  .homepage-button  {
   background-color: #eb1e25;
   padding: 10px 120px;
   border-radius: 47px;
   color: #ffffff;
   font-size: 11px;
   font-weight: 600;
+  bottom: 30px;
+  position: absolute;
 }
 
 /*********************Modal Component***********/
@@ -149,7 +153,12 @@
 /************************************Nigerian Dishes Component*******************/
 .nigeria {
   background-color: #dddddd;
-  height: 100vh;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.nigeria::-webkit-scrollbar {
+  display: none;
 }
 
 .nigeria .container .nigeria-header {
@@ -167,7 +176,7 @@
 .checkbox {
   margin: 15px 0px;
   background-color: #fff;
-  padding: 10px 30px;
+  padding: 3px 30px;
   font-size: 20px;
   border-radius: 10px;
   color: black;
@@ -185,12 +194,19 @@
   font-size: 12px;
 }
 
-.nigeria .container .nigerian-meals .meals-button {
+.meal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.meal-btn .meals-button {
   background-color: #eb1e25;
   color: white;
   border-radius: 47px;
   padding: 10px 80px;
-  margin-top: 100px;
+  bottom: 10px;
+  position: absolute;
 }
 
 /***************Order Component*****************************************/
@@ -389,11 +405,16 @@
 /***********Media Queries******************/
 @media only screen and (min-width: 0px) and (max-width: 480px) {
   .guest .container .homepage img {
-    height: 220px;
+    height: 240px;
+    margin-top: 120px;
+  }
+
+  .guest .container .homepage-text .text-header h2 {
+    font-size: 28px;
   }
 
   .guest .container .homepage-btn .homepage-button {
-    padding: 12px 86px;
+    padding: 12px 76px;
   }
 
   /*******************************/
@@ -403,7 +424,7 @@
   }
 
   .the-modal .modal-container .header h3 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .the-modal .modal-container .header p {
@@ -541,6 +562,7 @@
   /**************************************/
   .guest .container .homepage img {
     height: 220px;
+    margin-top: 130px;
   }
 
   /*************************************/
@@ -647,6 +669,7 @@
 @media only screen and (min-width: 769px) and (max-width: 1024px) { 
   .guest .container .homepage img {
     height: 220px !important;
+    margin-top: 130px;
   }
 
   .the-modal .modal-container {

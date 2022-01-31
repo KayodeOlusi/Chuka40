@@ -1,5 +1,6 @@
 import Image1 from "../../assets/Image1.jpg";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const Guest = () => {
     const navigate = useNavigate();
@@ -25,10 +26,10 @@ const Guest = () => {
                         <p>We hope you have an amazing time here</p>
                     </div>
                 </div>
-                <div className="homepage-btn" onClick = { showTheModal }>
-                    <div className="btn homepage-button">
+                <div className="homepage-btn">
+                    <Button className="btn homepage-button" onClick = { showTheModal }>
                         Enter Table Number
-                    </div>
+                    </Button>
                 </div>
             </div>
         </div>
