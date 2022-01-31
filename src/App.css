@@ -3,7 +3,6 @@
 /***************Guest Component*************/
 .App {
   font-family: 'Montserrat', sans-serif;
-  overflow-x: hidden;
 }
 
 .guest {
@@ -501,6 +500,10 @@
   .checkbox input[type = "checkbox"] {
     height: 14px;
     width: 14px;
+  }
+
+  .nigeria {
+    height: 80vh;
   }
 
   .nigeria .container .nigerian-meals .meals-button {
