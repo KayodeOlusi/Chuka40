@@ -406,7 +406,7 @@
 @media only screen and (min-width: 0px) and (max-width: 480px) {
   .guest .container .homepage img {
     height: 240px;
-    margin-top: 20px;
+    margin-top: 50px;
   }
 
   .guest .container .homepage-text .text-header h2 {
