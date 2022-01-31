@@ -43,8 +43,8 @@ const AdminLogin = () => {
                     </div>
                 </div>
                 <form className = "text-center mt-5" onSubmit = { loginToDashboard }>
-                    <input type="text" placeholder = "Email" className = "mb-5" value = { email } onChange = {e => setEmail(e.target.value)} /> <br />
-                    <input type="password" placeholder = "Password" className = "mb-5" value = { password } onChange = {e => setPassword(e.target.value)} /> <br />
+                    <input type="text" placeholder = "Email" className = "mb-5" value = { email } onChange = {e => setEmail(e.target.value)} />
+                    <input type="password" placeholder = "Password" className = "mb-5" value = { password } onChange = {e => setPassword(e.target.value)} />
                     <Button type = "submit" className = "admin-btn">
                         Login
                     </Button>

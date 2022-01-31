@@ -292,6 +292,8 @@
   border: none;
   font-size: 16px;
   border-radius: 47px;
+  display: block;
+  margin: 0 auto;
 }
 
 .admin-login .container form .admin-btn {
@@ -513,6 +515,26 @@
     padding: 8px 16px;
     margin-bottom: 20px;
   }
+
+  /*********************************************************/
+  .admin-login .container .homepage img {
+    height: 100px;
+  }
+
+  .admin-login .container .admin-login-text .header h2 {
+    font-size: 16px;
+  }
+
+  .admin-login .container form input {
+    width: 250px;
+    padding: 10px 15px;
+    font-size: 14px;
+    margin-bottom: 20px !important; 
+  }
+
+  .admin-login .container form .admin-btn {
+    margin-top: 100px;
+  }  
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) { 
@@ -600,6 +622,26 @@
   .checkbox .desc p {
     font-size: 12px;
   }
+
+  /******************************************/
+  .admin-login .container .homepage img {
+    height: 120px;
+  }
+
+  .admin-login .container .admin-login-text .header h2 {
+    font-size: 18px;
+  }
+
+  .admin-login .container form input {
+    width: 300px;
+    padding: 10px 15px;
+    font-size: 14px;
+    margin-bottom: 20px !important; 
+  }
+
+  .admin-login .container form .admin-btn {
+    margin-top: 100px;
+  } 
 } 
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) { 
@@ -635,5 +677,9 @@
     margin-top: 20px;
     padding: 8px 60px;
     font-size: 12px;
+  }
+
+  .admin-login .container .homepage img {
+    height: 160px;
   }
 }
