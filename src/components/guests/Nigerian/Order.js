@@ -19,33 +19,35 @@ const Order = () => {
     }
 
     return ( 
-        <div className="order">
-            <div className="container">
-                <div className="order-header">
-                    <h3>
-                        Food Tray
-                    </h3>
-                    <p>Please confirm food items on your food tray</p>
-                </div>
-                <div className="ordered-meals">
-                    {
-                        orderedFood.map((food, index) => (
-                            <div 
-                                className = "ordered-food"
-                                key = { index }
-                            >
-                                <h3>{ food }</h3>
-                            </div>
-                        ))
-                    }
-                </div>
-                <div className="order-button text-center"> 
-                    <Button type = "submit" className = "order-btn" onClick = { submitOrder }>
-                        Submit Order
-                    </Button>
+        <>
+            <div className="order">
+                <div className="container">
+                    <div className="order-header">
+                        <h3>
+                            Food Tray
+                        </h3>
+                        <p>Please confirm food items on your food tray</p>
+                    </div>
+                    <div className="ordered-meals">
+                        {
+                            orderedFood.map((food, index) => (
+                                <div 
+                                    className = "ordered-food"
+                                    key = { index }
+                                >
+                                    <h3>{ food }</h3>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
+            <div className="order-button text-center"> 
+                <Button type = "submit" className = "order-btn" onClick = { submitOrder }>
+                    Submit Order
+                </Button>
+            </div>
+        </>
      );
 }
  

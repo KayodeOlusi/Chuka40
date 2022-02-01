@@ -10,30 +10,28 @@ const Guest = () => {
     }
 
     return ( 
-        <div className = "guest">
-            <div className = "container">
-                <div className = "homepage">
-                    <img src = { Image1 } alt = "guest" className = "homepage-image img-thumbnail img-responsive"  />
-                </div>
-                <div className="homepage-text">
-                    <div className="text-header">
-                        <h2 className="text-center">Welcome to Chuka</h2>
-                        <h2 className="text-center">
-                            @ Big 40!
-                        </h2>
+        <>
+            <div className = "guest">
+                <div className="home d-flex justify-content-center align-items-center">
+                    <div className="row container">
+                        <div className="col-lg-6 col-md-12 col-sm-12 text-center">
+                            <img src = { Image1 } alt = "Welcome" className="img-thumbnail" />
+                        </div>
+                        <div className="col-lg-6 col-md-12 col-sm-12 text-center mt-3">
+                            <h2 className="text-white">Welcome to Chuka</h2>
+                            <h2 className="text-white">@Big 40!</h2>
+                            <p className="mt-3">We hope you have an amazing time today</p>
+                            <div className="homepage-btn mt-4">
+                                <Button className="btn homepage-button" onClick = { showTheModal }>
+                                    Enter Table Number
+                                </Button>
+                            </div>
+                        </div>
                     </div>
-                    <div className="text-desc text-center mt-1">
-                        <p>We hope you have an amazing time here</p>
-                    </div>
-                </div>
-                <div className="homepage-btn">
-                    <Button className="btn homepage-button" onClick = { showTheModal }>
-                        Enter Table Number
-                    </Button>
                 </div>
             </div>
-        </div>
-     );
+        </>
+         );
     }
  
 export default Guest;

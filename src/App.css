@@ -8,48 +8,29 @@
 .guest {
   background-color: #050726;
   height: 100vh;
-  position: relative;
-}
-
-.guest .container .homepage {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.guest .container .homepage img {
-  height: 250px;
-  margin-top: 60px;
+.guest .home .row img {
+  height: 260px;
+  object-fit: contain;
+  padding: 10px;
 }
 
-.guest .container .homepage-text .text-header {
-  color: white;
-  text-align: center;
-  font-weight: 800;
-  margin-top: 70px;
-}
-
-.guest .container .homepage-text .text-desc {
-  color: #d4d4d4;
+.guest .home .row p {
   font-size: 14px;
-  padding: 30px;
+  color: #dddddd;
 }
 
-.guest .container .homepage-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.guest .container  .homepage-button  {
+.guest .home .row .homepage-btn .homepage-button  {
   background-color: #eb1e25;
-  padding: 10px 120px;
+  padding: 10px 60px;
   border-radius: 47px;
   color: #ffffff;
-  font-size: 11px;
+  font-size: 8px !important;
   font-weight: 600;
-  bottom: 30px;
-  position: absolute;
 }
 
 /*********************Modal Component***********/
@@ -211,14 +192,18 @@
   color: white;
   border-radius: 47px;
   padding: 10px 80px;
-
-
 }
 
 /***************Order Component*****************************************/
 .order {
   background-color: #dddddd;
   height: 100vh;
+  position: relative;
+  overflow-y: scroll;
+}
+
+.order::-webkit-scrollbar {
+  display: none;
 }
 
 .order .container .order-header {
@@ -241,18 +226,30 @@
   font-size: 18px;
 }
 
-.order .container .order-button .order-btn {
+.order-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: #fff !important;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  padding: 5px;
+}
+
+.order-button .order-btn {
   background-color: #eb1e25;
   color: white;
   border-radius: 47px;
   padding: 10px 80px;
-  margin-top: 100px;
 }
 
 /*******************Update Component*****************************/
 .update {
   background-color: #dddddd;
   height: 100vh;
+  position: relative;
 }
 
 .update .update-header {
@@ -284,12 +281,24 @@
   border-left: 3px solid #424242;
 }
 
-.update .container .order-again-btn {
-  background-color: #eb1e25;
+.check-again {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: #fff !important;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  padding: 5px;
+  border-radius: none;
+}
+
+ .check-again .check-again-btn {
+  background-color: #eb1e25 !important;
   color: white;
   border-radius: 47px;
   padding: 10px 80px;
-  margin-top: 100px;
 }
 
 /***********************************************Admin Side*******************************************************/
@@ -410,18 +419,13 @@
 
 /***********Media Queries******************/
 @media only screen and (min-width: 0px) and (max-width: 480px) {
-  .guest .container .homepage img {
-    height: 240px;
-    margin-top: 50px;
+  .guest .home .row p {
+    font-size: 12px;
   }
 
-  .guest .container .homepage-text .text-header h2 {
-    font-size: 28px;
-  }
-
-  .guest .container .homepage-btn .homepage-button {
-    padding: 12px 76px;
-    bottom: 70px;
+  .guest .home .row .homepage-btn .homepage-button {
+    font-size: 10px !important;
+    padding: 10px 55px;
   }
 
   /*******************************/
@@ -568,11 +572,6 @@
 
 @media only screen and (min-width: 481px) and (max-width: 768px) { 
   /**************************************/
-  .guest .container .homepage img {
-    height: 220px;
-    margin-top: 130px;
-  }
-
   /*************************************/
   .the-modal .modal-container {
     margin: 25% auto;
