@@ -430,21 +430,23 @@
 
   /*******************************/
   .the-modal .modal-container {
-    margin: 25% auto;
+    margin: 50% auto;
     width: 300px;
-    height:500px;
+    height:260px;
   }
 
   .the-modal .modal-container .header h3 {
     font-size: 20px;
+    margin-top: 5px;
   }
 
   .the-modal .modal-container .header p {
     font-size: 11px;
+    padding: 5px 50px;
   }
 
   .the-modal .modal-container .contents form {
-    margin-top: 30px;
+    margin-top: 5px;
   }
 
   .the-modal .modal-container .contents form h6 {
@@ -454,7 +456,7 @@
 
   .the-modal .modal-container .contents form input {
     padding: 8px;
-    width: 160px;
+    width: 220px;
     font-size: 11px;
   }
 
@@ -575,7 +577,8 @@
   /*************************************/
   .the-modal .modal-container {
     margin: 25% auto;
-    width: 200px;
+    width: 300px;
+    height: 260px;
   }
 
   .the-modal .modal-container .header h3 {
@@ -584,6 +587,7 @@
 
   .the-modal .modal-container .header p {
     font-size: 11px;
+    padding: 5px 40px;
   }
 
   .the-modal .modal-container .contents form {
@@ -597,12 +601,12 @@
 
   .the-modal .modal-container .contents form input {
     padding: 8px;
-    width: 160px;
+    width: 200px;
     font-size: 11px;
   }
 
   .the-modal .modal-container .contents form .modal-button {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 8px 40px;
     font-size: 12px;
   }
@@ -682,14 +686,16 @@
   .the-modal .modal-container {
     margin: 20% auto;
     width: 300px;
+    height: 260px;
   }
 
   .the-modal .modal-container .header p {
     font-size: 13px;
+    padding: 5px 30px;
   }
 
   .the-modal .modal-container .contents form {
-    margin-top: 30px;
+    margin-top: 10px;
   }
 
   .the-modal .modal-container .contents form h6 {
@@ -699,12 +705,12 @@
 
   .the-modal .modal-container .contents form input {
     padding: 8px;
-    width: 200px;
+    width: 240px;
     font-size: 11px;
   }
 
   .the-modal .modal-container .contents form .modal-button {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 8px 60px;
     font-size: 12px;
   }

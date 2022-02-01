@@ -2,12 +2,12 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { holdTableNumber } from "../../features/guestSlice";
+import { holdModalState, holdTableNumber } from "../../features/guestSlice";
 
 const GuestModal = () => {
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const addTableNumber = (e) => {
       e.preventDefault();
@@ -19,6 +19,9 @@ const GuestModal = () => {
         tableNumber: input
       }));
       setInput("");
+      dispatch(holdModalState({
+        modalState: false
+      }))
       navigate("/category");
     }
 

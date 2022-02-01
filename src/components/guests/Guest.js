@@ -1,16 +1,22 @@
 import Image1 from "../../assets/Image1.jpg";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import GuestModal from "./GuestModal";
+import { useDispatch, useSelector } from "react-redux";
+import { holdModalState, selectModalState } from "../../features/guestSlice";
 
 const Guest = () => {
-    const navigate = useNavigate();
+    const modal = useSelector(selectModalState);
+    const dispatch = useDispatch();
 
     const showTheModal = () => {
-        navigate("/modal");
+        dispatch(holdModalState({
+            modalState: true
+        }))
     }
 
     return ( 
         <>
+            { modal && <GuestModal /> }
             <div className = "guest">
                 <div className="home d-flex justify-content-center align-items-center">
                     <div className="row container">
