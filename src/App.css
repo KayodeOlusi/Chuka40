@@ -198,6 +198,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  background-color: #fff;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
 }
 
 .meal-btn .meals-button {
@@ -205,8 +210,8 @@
   color: white;
   border-radius: 47px;
   padding: 10px 80px;
-  bottom: 10px;
-  position: absolute;
+
+
 }
 
 /***************Order Component*****************************************/
