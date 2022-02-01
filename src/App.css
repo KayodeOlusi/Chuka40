@@ -199,10 +199,11 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  background-color: #fff;
+  background-color: #fff !important;
   bottom: 0;
   position: fixed;
   width: 100%;
+  padding: 5px;
 }
 
 .meal-btn .meals-button {
