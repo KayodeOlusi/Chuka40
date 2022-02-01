@@ -88,6 +88,7 @@
   font-family: 'Montserrat', sans-serif !important;
 }
 
+
 /****************Category Component*********************************/
 .categories {
   background-color: #dddddd;
@@ -112,8 +113,8 @@
 }
 
 .categories .container .category-contents .continental {
-  background-color: #f4f4f4;
-  padding: 20px 10px;
+  background-color: #fff;
+  padding: 13px 10px;
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -168,11 +169,13 @@
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 .checkbox .desc p {
   color: gray;
   font-size: 12px;
+  text-transform: capitalize;
 }
 
 .meal-btn {
@@ -192,6 +195,10 @@
   color: white;
   border-radius: 47px;
   padding: 10px 80px;
+}
+
+.meal-btn .meals-button:hover {
+  background-color: #eb1e25;
 }
 
 /***************Order Component*****************************************/
@@ -220,6 +227,7 @@
   padding: 15px 30px;
   border-radius: 10px;
   color: black;
+  text-transform: capitalize;
 }
 
 .order .container .ordered-meals .ordered-food h3 {
@@ -243,6 +251,10 @@
   color: white;
   border-radius: 47px;
   padding: 10px 80px;
+}
+
+.order-button .order-btn:hover {
+  background-color: #eb1e25;
 }
 
 /*******************Update Component*****************************/
@@ -299,6 +311,10 @@
   color: white;
   border-radius: 47px;
   padding: 10px 80px;
+}
+
+.check-again .check-again-btn:hover {
+  background-color: #eb1e25;
 }
 
 /***********************************************Admin Side*******************************************************/
