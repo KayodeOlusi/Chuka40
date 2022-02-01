@@ -64,6 +64,7 @@ const Nigerian = () => {
                         }
                     
                     </div>
+                    <div className="space"></div>
                 </div>
             </div>
             <div className="meal-btn text-center bg-danger"> 
