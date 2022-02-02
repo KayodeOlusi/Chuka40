@@ -1,4 +1,4 @@
-import Image1 from "../../assets/Image1.jpg";
+import Image1 from "../../assets/Image1.jpeg";
 import { Button } from "@mui/material";
 import GuestModal from "./GuestModal";
 import { useDispatch, useSelector } from "react-redux";

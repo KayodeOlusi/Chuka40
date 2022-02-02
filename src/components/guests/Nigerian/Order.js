@@ -2,17 +2,19 @@ import { Button } from "@mui/material";
 import { addDoc, collection } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { holdTableNumber, selectFoodTray } from "../../../features/guestSlice";
+import { selectTableNumber, selectFoodTray, selectGuestEmail } from "../../../features/guestSlice";
 import { db } from "../../../firebase";
 
 const Order = () => {
     const orderedFood = useSelector(selectFoodTray);
-    const tableNumber = useSelector(holdTableNumber);
+    const tableNumber = useSelector(selectTableNumber);
+    const guestEmail = useSelector(selectGuestEmail)
     const navigate = useNavigate();
 
     const submitOrder = () => {
         addDoc(collection(db, "orders"), {
-            table: tableNumber.payload.guest.tableNumber,
+            table: tableNumber,
+            email: guestEmail,
             meals: orderedFood
         })
         navigate("/category/nigerian/order/update");
