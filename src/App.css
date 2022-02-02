@@ -345,7 +345,7 @@
 }
 
 .update .container .update-status .successful {
-  border-left : 3px solid green ;
+  border-left : 3px solid #00ff00;
   padding: 10px 20px;
   margin-bottom: 10px;
 }
