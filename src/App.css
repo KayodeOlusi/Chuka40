@@ -353,7 +353,7 @@
 .update .container .update-status .in-progress, .served {
   padding: 10px 20px;
   margin-bottom: 20px;
-  border-left: 3px solid #424242;
+  border-left: 3px solid #fff;
 }
 
 .check-again {
