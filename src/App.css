@@ -557,17 +557,21 @@
   padding: 10px 80px;
 }
 
+.create-meal-btn .create-meal-button:hover {
+  background-color: #eb1e25;
+}
+
 .meal-form {
   background-color: #dddddd;
   height: 100vh;
 }
 
 .meal-form .container .header h5 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .meal-form .container .header p {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .meal-form .container form {
@@ -581,11 +585,14 @@
 }
 
 .meal-form .container form input {
-  border-radius: 47px;
-  border: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 0.1px solid #050726;
+  border-left: none;
   width: 450px;
   padding: 15px 25px;
-  font-size: 14px;
+  font-size: 12px;
+  background-color: #dddddd;
 }
 
 
@@ -766,7 +773,7 @@
     padding: 10px;
     border-radius: 47px;
     width: 240px;
-    font-size: 12px;
+    font-size: 10px;
     border: 0.1px solid gray;
   }
 
@@ -774,7 +781,11 @@
     padding: 10px 50px;
   }
 
-  /******************************************/
+  .add .container .texts h5 {
+    font-size: 16px;
+  }
+
+  /*****************************************************************/
   .new-meal .container .category-contents .continental .texts, .new-meal .container .category-contents .nigerian .texts {
     padding: 5px 10px;
   }
@@ -807,9 +818,11 @@
     font-size: 12px;
   }
 
+  .meal-form .container form label {
+    font-size: 12px;
+  }
+
   .meal-form .container form input {
-    border-radius: 47px;
-    border: none;
     width: 260px;
     padding: 10px 25px;
     font-size: 14px;

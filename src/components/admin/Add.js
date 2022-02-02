@@ -8,6 +8,9 @@ const Add = () => {
     return ( 
         <div className="add">
             <div className="container">
+                <div className="texts">
+                    <h5>Add To The Categories Below</h5>
+                </div>
                 <div className="add-caterer mt-3" onClick = {() => navigate("/create/caterer")}>
                     <Face /> Add New Caterer
                 </div>

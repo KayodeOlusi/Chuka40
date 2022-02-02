@@ -2,9 +2,9 @@ import { Button } from "@mui/material";
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { db } from '../../../firebase';
+import { db } from "../../../firebase";
 
-const MealForm = () => {
+const NewContinental = () => {
     const [name, setName] = useState("");
     const [ingredient, setIngredient] = useState("");
     const [portion, setPortion] = useState("");
@@ -14,7 +14,7 @@ const MealForm = () => {
         if(!(name && ingredient && portion)) {
             return false;
         }
-        addDoc(collection(db, "nigerian"), {
+        addDoc(collection(db, "continental"), {
             name: name,
             quantity: portion,
             toppings: ingredient
@@ -23,7 +23,7 @@ const MealForm = () => {
         console.log("successful");
     }
 
-    return (
+    return ( 
         <> 
             <div className="meal-form">
                 <div className="container">
@@ -71,4 +71,4 @@ const MealForm = () => {
      );
 }
  
-export default MealForm;
+export default NewContinental;

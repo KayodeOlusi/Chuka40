@@ -21,7 +21,7 @@ const AdminDashboardPanel = () => {
                     <div className="food-category col-6">
                         <div className="inner-food">
                             <h6>Food Categories</h6>
-                            <h2>02</h2>
+                            <h2>2</h2>
                         </div>
                     </div>
                 </div>

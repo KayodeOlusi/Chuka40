@@ -13,6 +13,7 @@ import Add from './components/admin/Add';
 import NewMeal from './components/admin/New Meal/NewMeal';
 import NewCaterer from './components/admin/New Caterer/NewCaterer';
 import MealForm from './components/admin/New Meal/MealForm';
+import ContinentalForm from './components/admin/New Meal/ContinentalForm';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path = "/create" element = { <Add /> } />
             <Route path = "/create/meal" element = { <NewMeal /> } />
             <Route path = "/create/meal/form" element = { <MealForm /> } />
+            <Route path = "/create/continental/form" element = { <ContinentalForm /> } />
             <Route path = "/create/caterer" element = { <NewCaterer /> } />
         </Routes>
     </div>

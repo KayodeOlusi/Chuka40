@@ -20,7 +20,7 @@ const NewMeal = () => {
                             </h6>
                         </div>
                     </div>
-                    <div className="continental mt-3" onClick = {() => navigate()}>
+                    <div className="continental mt-3" onClick = {() => navigate("/create/continental/form")}>
                         <img src="https://guardian.ng/wp-content/uploads/2018/08/Concoction-rice-photo-My-story-time.jpg" alt="" />
                         <div className="texts">
                             <h3>Continental</h3>
