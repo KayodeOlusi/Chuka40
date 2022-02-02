@@ -1,42 +1,50 @@
-import { Button } from "@mui/material";
+import { collection, query } from "firebase/firestore";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { db } from "../../firebase";
+import Bottomnav from "./Bottomnav";
 
 const AdminDashboardPanel = () => {
-    const addCaterer = () => {
-
-    }
-
+    const [totalOrders] = useCollection(query(collection(db, "orders")));
+    const [totalNigerianFood] = useCollection(query(collection(db, "nigerian")));
+    const [totalContinentalFood] = useCollection(query(collection(db, "continental")));
+    
     return ( 
         <div className="admin-dashboard-panel">
             <div className="container">
-                <div className="admin-dashboard-header">
-                    <h3>Hello Admin</h3>
-                </div>
-                <div className="row row1 g-2">
-                    <div className="number-of-caterers col-lg-6 col-md-6 col-sm-6">
-                        <h4>Total Caterers</h4>
-                        <p>12</p>
+                <div className="details row gy-2">
+                    <div className="total-caterers col-6">
+                        <div className="inner-total">
+                            <h6>Total Caterers</h6>
+                            <h2>12</h2>
+                        </div>
                     </div>
-                    <div className="food-categories col-lg-6 col-md-6 col-sm-6">
-                        <h4>Food Categories</h4>
-                        <p>02</p>
-                    </div>
-                </div>
-                <div className="row row2 g-2">
-                    <div className="food-menu-items col-lg-6 col-md-6 col-sm-6">
-                        <h4>Food Menu Items</h4>
-                        <p>22</p>
-                    </div>
-                    <div className="total-orders col-lg-6 col-md-6 col-sm-6">
-                        <h4>Total Orders</h4>
-                        <p>57</p>
+                    <div className="food-category col-6">
+                        <div className="inner-food">
+                            <h6>Food Categories</h6>
+                            <h2>02</h2>
+                        </div>
                     </div>
                 </div>
-                <div className="admin-add-btn text-center">
-                    <Button onClick = { addCaterer } className = "admin-btn" >
-                        Create Caterer
-                    </Button>
+                <div className="details row">
+                    <div className="food-menu-items col-6">
+                        <div className="inner-menu">
+                            <h6>Food Menu Items</h6>
+                            {
+                                totalNigerianFood && totalContinentalFood ? <h2>{ totalNigerianFood.docs.length + totalContinentalFood.docs.length }</h2> : <h2>0</h2>
+                            }
+                        </div>
+                    </div>
+                    <div className="total-orders col-6">
+                        <div className="inner-order">
+                            <h6>Total Orders</h6>
+                            {
+                                totalOrders ? <h2>{ totalOrders?.docs.length }</h2> : <h2>0</h2>
+                            }
+                        </div>
+                    </div>
                 </div>
             </div>
+            <Bottomnav />
         </div>
      );
 }

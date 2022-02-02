@@ -386,92 +386,115 @@
 .admin-login {
   background-color: #050726;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.admin-login .container .homepage img {
-  height: 200px;
-  border-radius: 50%;
+.admin-login .homepage .row img {
+  height: 260px;
   object-fit: contain;
+  padding: 10px;
+  border-radius: 50%;
 }
 
-.admin-login .container .admin-login-text .header h2 {
-  font-size: 20px;
+.admin-login .homepage .admin-login-details form {
+  margin-top: 20px;
+  padding: 10px;
 }
 
-.admin-login .container form input {
-  width: 350px;
-  padding: 10px 25px;
-  border: none;
-  font-size: 16px;
+.admin-login .homepage .admin-login-details form input {
+  padding: 10px;
   border-radius: 47px;
-  display: block;
-  margin: 0 auto;
+  width: 320px;
+  font-size: 12px;
+  border: 0.1px solid gray;
 }
 
-.admin-login .container form .admin-btn {
+.admin-login .homepage .admin-login-details form .admin-btn {
   background-color: #eb1e25;
-  padding: 10px 120px;
+  padding: 10px 100px;
   border-radius: 47px;
   color: #ffffff;
   font-size: 11px;
   font-weight: 600;
 }
 
+/****************************************************/
 .admin-dashboard-panel {
-  background-color: #d4d4d4;
+  background-color: #dddddd;
   height: 100vh;
 }
 
-.admin-dashboard-panel .container .admin-dashboard-header {
-  padding: 15px 30px;
-}
-
-.admin-dashboard-panel .container .row1 {
-  padding: 10px;
-}
-
-.admin-dashboard-panel .container .row2 {
-  padding: 10px;
-}
-
-.admin-dashboard-panel .container .row1 .number-of-caterers {
-  background-color: #050726;
-  border-radius: 16px;
-  color: #dddddd;
-  padding: 20px;
-  border: none;
-}
-
-.admin-dashboard-panel .container .row1 .food-categories {
-  background-color: #971787;
-  border-radius: 16px;
-  color: #dddddd;
-  padding: 20px;
-  border: none;
-}
-
-.admin-dashboard-panel .container .row2 .food-menu-items {
-  background-color: #424dff;
-  padding: 20px;
-  color: #dddddd;
-  border-radius: 16px;
-  border: none;
-}
-
-.admin-dashboard-panel .container .row2 .total-orders {
-  background-color: #1bb10e;
-  padding: 20px;
-  color: #dddddd;
-  border-radius: 16px;
-  border: none;
-}
-
-.admin-dashboard-panel .container .admin-btn {
-  background-color: #eb1e25;
+.admin-dashboard-panel .container .details {
+  padding-top: 30px;
   color: white;
-  border-radius: 47px;
-  padding: 10px 80px;
-  margin-top: 50px;
+  margin: 0 auto;
+}
+
+.admin-dashboard-panel .container .details h6 {
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.admin-dashboard-panel .container .details .total-caterers .inner-total {
+  background-color: #050726;
+  padding: 10px;
+  border-radius: 16px;
+  border: none;
+}
+
+.admin-dashboard-panel .container .details .food-category .inner-food {
+  background-color: #9717b7;
+  padding: 10px;
+  border-radius: 16px;
+  border: none;
+}
+
+.admin-dashboard-panel .container .details .food-menu-items .inner-menu {
+  background-color: #424dff;
+  padding: 10px;
+  border-radius: 16px;
+  border: none;
+}
+
+.admin-dashboard-panel .container .details .total-orders .inner-order {
+  background-color: #1bb10e;
+  padding: 10px;
+  border-radius: 16px;
+  border: none;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 4px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottom-nav .MuiSvgIcon-root {
+  color: #050726;
+}
+
+/****************************************/
+.add {
+  background-color: #ddd;
+  height: 100vh;
+}
+
+.add .container {
+  padding-top: 30px;
+}
+
+.add .container .add-caterer, .add .container .add-meal {
+  background-color: #fff;
+  padding: 20px 50px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 400;
 }
 
 
@@ -637,24 +660,26 @@
   }
 
   /*********************************************************/
-  .admin-login .container .homepage img {
-    height: 100px;
+  .admin-login .homepage .row img {
+    height: 220px;
+  }
+  
+  .admin-login .homepage .admin-login-details form {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .admin-login .homepage .admin-login-details form input {
+    padding: 10px;
+    border-radius: 47px;
+    width: 240px;
+    font-size: 12px;
+    border: 0.1px solid gray;
   }
 
-  .admin-login .container .admin-login-text .header h2 {
-    font-size: 16px;
+  .admin-login .homepage .admin-login-details form .admin-btn {
+    padding: 10px 50px;
   }
-
-  .admin-login .container form input {
-    width: 250px;
-    padding: 10px 15px;
-    font-size: 14px;
-    margin-bottom: 20px !important; 
-  }
-
-  .admin-login .container form .admin-btn {
-    margin-top: 100px;
-  }  
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) { 

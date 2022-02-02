@@ -25,32 +25,34 @@ const AdminLogin = () => {
                     password: user.password
                 }))
                 alert("logged in");
-                navigate("/admin/dashboard");
+                navigate("/dashboard");
             }
         })
         .catch(e => alert(e))
     }
 
     return ( 
-        <div className="admin-login">
-            <div className="container">
-                <div className="homepage text-center pt-5">
-                    <img src="https://static.vecteezy.com/system/resources/previews/000/554/708/original/lock-vector-icon.jpg" alt = "admin" />
-                </div>
-                <div className="admin-login-text text-center pt-3">
-                    <div className="header">
-                        <h2 className = "text-white">Login as Admin</h2>
+        <>
+            <div className="admin-login">
+                <div className="homepage d-flex justify-content-center align-items-center">
+                    <div className="row container">
+                        <div className="text-center col-lg-6 col-md-12 col-sm-12">
+                            <img src="https://static.vecteezy.com/system/resources/previews/000/554/708/original/lock-vector-icon.jpg" alt = "admin" />
+                        </div>
+                        <div className="col-lg-6 col-md-12 col-sm-12 admin-login-details text-center mt-3">
+                            <h2 className = "text-white">Login as Admin</h2>  
+                            <form className = "text-center" onSubmit = { loginToDashboard }>
+                                <input type="text" placeholder = "Email" className = "" value = { email } onChange = {e => setEmail(e.target.value)} />
+                                <input type="password" placeholder = "Password" className = "mt-3" value = { password } onChange = {e => setPassword(e.target.value)} /> <br />
+                                <Button type = "submit" className = "admin-btn mt-3">
+                                    Login
+                                </Button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <form className = "text-center mt-5" onSubmit = { loginToDashboard }>
-                    <input type="text" placeholder = "Email" className = "mb-5" value = { email } onChange = {e => setEmail(e.target.value)} />
-                    <input type="password" placeholder = "Password" className = "mb-5" value = { password } onChange = {e => setPassword(e.target.value)} />
-                    <Button type = "submit" className = "admin-btn">
-                        Login
-                    </Button>
-                </form>
             </div>
-        </div>
+        </>
      );
 }
  

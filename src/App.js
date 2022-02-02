@@ -9,6 +9,7 @@ import Order from './components/guests/Nigerian/Order';
 import Update from './components/guests/Nigerian/Update';
 import AdminLogin from './components/admin/AdminLogin';
 import AdminDashboard from './components/admin/AdminDashboard';
+import Add from './components/admin/Add';
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
             <Route path = "/category/nigerian/order" element = { <Order /> } />
             <Route path = "/category/nigerian/order/update" element = { <Update /> } />
             <Route path = "/admin" element = { <AdminLogin /> } />
-            <Route path = "/admin/dashboard" element = { <AdminDashboard /> } />
+            <Route path = "/dashboard" element = { <AdminDashboard /> } />
+            <Route path = "/create" element = { <Add /> } />
         </Routes>
     </div>
   );
