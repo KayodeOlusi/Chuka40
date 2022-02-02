@@ -1,4 +1,4 @@
-const CheckBox = ({ name, quantity, toppings, id, ...rest }) => {
+const CheckBox = ({ name, toppings, id, ...rest }) => {
     return ( 
             <form className="checkbox mt-3">
                 <div className = "available">
@@ -7,7 +7,7 @@ const CheckBox = ({ name, quantity, toppings, id, ...rest }) => {
                 </div>
                 <div className="desc">
                     <p>{ toppings }</p>
-                    <p> Quantity: { quantity } plates left</p>
+                    <p> Available </p>
                 </div>   
             </form> 
      );

@@ -205,6 +205,57 @@
   background-color: #eb1e25;
 }
 
+/*****************************Continental Component*********************/
+.continentals {
+  background-color: #dddddd;
+  height: 100vh;
+  position: relative;
+  overflow-y: scroll;
+}
+
+.continentals::-webkit-scrollbar {
+  display: none;
+}
+
+.continentals .container .continentals-header {
+  padding-top: 30px;
+}
+
+.continentals .container .continentals-header p {
+  color: gray;
+}
+
+.continentals .container .continental-meals {
+  margin-top: 10px;
+}
+
+.continentals .space {
+  margin-top: 100px;
+}
+
+.cont-meal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: #fff !important;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  padding: 5px;
+}
+
+.cont-meal-btn .cont-meals-button {
+  background-color: #eb1e25;
+  color: white;
+  border-radius: 47px;
+  padding: 10px 80px;
+}
+
+.cont-meal-btn .cont-meals-button:hover {
+  background-color: #eb1e25;
+}
+
 /***************Order Component*****************************************/
 .order {
   background-color: #dddddd;

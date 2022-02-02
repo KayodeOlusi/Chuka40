@@ -61,8 +61,7 @@ const Nigerian = () => {
                                     checked = { checkState[index] }
                                 />
                             ))
-                        }
-                    
+                        } 
                     </div>
                     <div className="space"></div>
                 </div>
