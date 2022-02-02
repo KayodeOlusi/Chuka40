@@ -10,6 +10,9 @@ import Update from './components/guests/Nigerian/Update';
 import AdminLogin from './components/admin/AdminLogin';
 import AdminDashboard from './components/admin/AdminDashboard';
 import Add from './components/admin/Add';
+import NewMeal from './components/admin/New Meal/NewMeal';
+import NewCaterer from './components/admin/New Caterer/NewCaterer';
+import MealForm from './components/admin/New Meal/MealForm';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
             <Route path = "/admin" element = { <AdminLogin /> } />
             <Route path = "/dashboard" element = { <AdminDashboard /> } />
             <Route path = "/create" element = { <Add /> } />
+            <Route path = "/create/meal" element = { <NewMeal /> } />
+            <Route path = "/create/meal/form" element = { <MealForm /> } />
+            <Route path = "/create/caterer" element = { <NewCaterer /> } />
         </Routes>
     </div>
   );

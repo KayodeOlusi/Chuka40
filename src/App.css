@@ -497,6 +497,99 @@
   font-weight: 400;
 }
 
+.add .MuiSvgIcon-root {
+  margin-right: 15px;
+}
+
+.new-meal {
+  background-color: #dddddd;
+  height: 100vh;
+}
+
+.new-meal .container .header {
+  padding-top: 30px;
+}
+
+.new-meal .container .category-contents .nigerian {
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.new-meal .container .category-contents .continental {
+  background-color: #fff;
+  padding: 13px 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.new-meal .container .category-contents .continental .texts, .new-meal .container .category-contents .nigerian .texts {
+  padding: 5px 50px;
+}
+
+.new-meal .container .category-contents img {
+  width: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+/******************************************************************/
+.create-meal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: #fff !important;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  padding: 5px;
+}
+
+.create-meal-btn .create-meal-button {
+  background-color: #eb1e25;
+  color: white;
+  border-radius: 47px;
+  padding: 10px 80px;
+}
+
+.meal-form {
+  background-color: #dddddd;
+  height: 100vh;
+}
+
+.meal-form .container .header h5 {
+  font-size: 20px;
+}
+
+.meal-form .container .header p {
+  font-size: 14px;
+}
+
+.meal-form .container form {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.meal-form .container form label {
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.meal-form .container form input {
+  border-radius: 47px;
+  border: none;
+  width: 450px;
+  padding: 15px 25px;
+  font-size: 14px;
+}
+
+
+
 
 
 
@@ -679,6 +772,47 @@
 
   .admin-login .homepage .admin-login-details form .admin-btn {
     padding: 10px 50px;
+  }
+
+  /******************************************/
+  .new-meal .container .category-contents .continental .texts, .new-meal .container .category-contents .nigerian .texts {
+    padding: 5px 10px;
+  }
+  
+  .new-meal .container .category-contents img {
+    width: 100px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  .new-meal .container .header h5 {
+    font-size: 18px;
+  }
+
+  .new-meal .container .category-contents .nigerian .texts h3{
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .new-meal .container .category-contents .nigerian .texts h6 {
+    font-size: 12px;
+  }
+
+  .new-meal .container .category-contents .continental .texts h3{
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .new-meal .container .category-contents .continental .texts h6 {
+    font-size: 12px;
+  }
+
+  .meal-form .container form input {
+    border-radius: 47px;
+    border: none;
+    width: 260px;
+    padding: 10px 25px;
+    font-size: 14px;
   }
 }
 
