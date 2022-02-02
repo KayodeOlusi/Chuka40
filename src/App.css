@@ -67,6 +67,7 @@
 .the-modal .modal-container .header {
   margin: 0 auto;
   text-align: center;
+  padding: 0px 50px;
 }
 
 .the-modal .modal-container .contents {
@@ -75,12 +76,12 @@
 }
 
 .the-modal .modal-container .contents form {
-  margin-top: 50px;
+  margin-top: 20px;
   padding: 10px;
 }
 
 .the-modal .modal-container .contents form input {
-  padding: 10px;
+  padding: 5px;
   border-radius: 47px;
   width: 320px;
   font-size: 12px;
@@ -91,7 +92,7 @@
   background-color: #eb1e25;
   margin-top: 10px;
   border-radius: 47px;
-  padding: 10px 70px;
+  padding: 5px 70px;
   color: #ffffff;
   font-family: 'Montserrat', sans-serif !important;
 }
@@ -521,11 +522,11 @@
 
   .the-modal .modal-container .header p {
     font-size: 11px;
-    padding: 5px 50px;
+    padding: 5px 5px;
   }
 
   .the-modal .modal-container .contents form {
-    margin-top: 5px;
+    margin-top: 2px;
   }
 
   .the-modal .modal-container .contents form h6 {
@@ -539,9 +540,13 @@
     font-size: 11px;
   }
 
+  .the-modal .modal-container .contents form .table-number {
+    margin-top: 5px !important;
+  }
+
   .the-modal .modal-container .contents form .modal-button {
-    margin-top: 20px;
-    padding: 8px 40px;
+    margin-top: 10px;
+    padding: 5px 40px;
     font-size: 12px;
   }
   /******************************/

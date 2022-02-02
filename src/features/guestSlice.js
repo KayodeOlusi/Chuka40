@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  guestEmail: "",
   tableNumber: null,
   modalState: false,
   foodTray: []
@@ -19,12 +20,16 @@ export const guestSlice = createSlice({
     },
     holdModalState: (state, action) => {
       state.modalState = action.payload.modalState
+    },
+    holdGuestEmail: (state, action) => {
+      state.guestEmail = action.payload.guestEmail
     }
   },
 });
 
-export const { holdTableNumber, holdFoodTray, holdModalState } = guestSlice.actions;
+export const { holdTableNumber, holdFoodTray, holdModalState, holdGuestEmail } = guestSlice.actions;
 export const selectTableNumber = (state) => state.guest.tableNumber;
 export const selectFoodTray = (state) => state.guest.foodTray;
 export const selectModalState = (state) => state.guest.modalState;
+export const selectGuestEmail = (state) => state.guest.guestEmail;
 export default guestSlice.reducer;

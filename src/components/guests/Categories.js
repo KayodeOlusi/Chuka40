@@ -6,7 +6,6 @@ const Categories = () => {
     const toNigerian = () => {
         navigate("/category/nigerian");
     }
-
     const toContinental = () => {
         navigate("/category/continental");
     }
