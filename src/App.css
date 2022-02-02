@@ -5,6 +5,14 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.loader {
+  overflow-y: scroll;
+}
+
+.loader::-webkit-scrollbar {
+  display: none;
+}
+
 .guest {
   background-color: #050726;
   height: 100vh;

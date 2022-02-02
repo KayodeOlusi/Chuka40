@@ -2,7 +2,7 @@ import CheckBox from "./CheckBox";
 import { db } from "../../../firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, query } from "firebase/firestore";
-import { Button } from "@mui/material";
+import { Button, Skeleton } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { holdFoodTray } from "../../../features/guestSlice";
@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const Nigerian = () => {
     const q = query(collection(db, "nigerian"));
-    const [nigerianDishes] = useCollection(q);
+    const [nigerianDishes, loading] = useCollection(q);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const emptyTray = [];
@@ -36,6 +36,39 @@ const Nigerian = () => {
             foodTray: [...emptyTray]
         }))
         navigate("/category/nigerian/order");
+    }
+
+    if(loading) {
+        return (
+            <div className = "loader">
+                <div className = "container mt-3">
+                    <Skeleton />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                </div>
+                <div className = "container mt-3">
+                    <Skeleton />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                </div>
+                <div className = "container mt-3">
+                    <Skeleton />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                </div>
+                <div className="meal-btn text-center bg-danger"> 
+                <Button type = "submit" className = "meals-button">
+                    Add to food tray
+                </Button>
+            </div>
+            </div>
+        )
     }
     
     return ( 

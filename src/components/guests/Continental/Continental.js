@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Skeleton } from "@mui/material";
 import { collection, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
@@ -10,7 +10,7 @@ import CheckBox from "../Nigerian/CheckBox";
 
 const Continental = () => {
     const q = query(collection(db, "continental"));
-    const [continentalDishes] = useCollection(q);
+    const [continentalDishes, loading] = useCollection(q);
     const emptyTray = [];
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -36,6 +36,39 @@ const Continental = () => {
             foodTray: [...emptyTray]
         }))
         navigate("/category/nigerian/order");
+    }
+
+    if(loading) {
+        return (
+            <div className = "loader">
+                <div className = "container mt-3">
+                    <Skeleton />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                </div>
+                <div className = "container mt-3">
+                    <Skeleton />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                </div>
+                <div className = "container mt-3">
+                    <Skeleton />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                    <Skeleton animation = "wave" />
+                </div>
+                <div className="cont-meal-btn text-center bg-danger"> 
+                    <Button type = "submit" className = "cont-meals-button">
+                        Add to food tray
+                    </Button>
+                </div>
+            </div>
+        )
     }
 
     return ( 
