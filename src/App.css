@@ -562,7 +562,7 @@
 }
 
 .meal-form {
-  background-color: #dddddd;
+  background-color: #fff;
   height: 100vh;
 }
 
@@ -581,18 +581,17 @@
 
 .meal-form .container form label {
   font-weight: 600;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .meal-form .container form input {
-  border-right: none;
-  border-top: none;
-  border-bottom: 0.1px solid #050726;
-  border-left: none;
-  width: 450px;
+  border: 0.1px solid #000;
+  border-radius: 47px;
+  width: 100%;
   padding: 15px 25px;
   font-size: 12px;
-  background-color: #dddddd;
+  background-color: #fff;
+  margin-top: 5px;
 }
 
 

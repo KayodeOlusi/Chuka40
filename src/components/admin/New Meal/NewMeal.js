@@ -1,8 +1,17 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { selectAdmin } from "../../../features/adminSlice";
 import Bottomnav from "../Bottomnav";
 
 const NewMeal = () => {
     const navigate = useNavigate();
+    const user = useSelector(selectAdmin);
+    useEffect(() => {
+        if(!user) {
+            navigate("/admin");
+        }
+    });
 
     return ( 
         <div className="new-meal">

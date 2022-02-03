@@ -5,14 +5,13 @@ import { selectAdmin } from "../../features/adminSlice";
 import AdminDashboardPanel from "./AdminDashboardPanel";
 
 const AdminDashboard = () => {
-    const user = useSelector(selectAdmin);
     const navigate = useNavigate();
-
+    const user = useSelector(selectAdmin);
     useEffect(() => {
         if(!user) {
             navigate("/admin");
         }
-    })
+    });
 
     return ( 
         <div className="admin-dashboard">

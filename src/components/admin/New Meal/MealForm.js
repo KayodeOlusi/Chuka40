@@ -1,7 +1,9 @@
 import { Button } from "@mui/material";
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { selectAdmin } from "../../../features/adminSlice";
 import { db } from '../../../firebase';
 
 const MealForm = () => {
@@ -9,6 +11,7 @@ const MealForm = () => {
     const [ingredient, setIngredient] = useState("");
     const [portion, setPortion] = useState("");
     const navigate = useNavigate();
+    const user = useSelector(selectAdmin);
 
     const addMeal = () => {
         if(!(name && ingredient && portion)) {
@@ -21,6 +24,10 @@ const MealForm = () => {
         });
         navigate("/dashboard");
         console.log("successful");
+    }
+
+    if(!user) {
+        navigate("/admin");
     }
 
     return (

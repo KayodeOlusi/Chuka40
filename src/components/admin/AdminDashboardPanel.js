@@ -1,12 +1,24 @@
 import { collection, query } from "firebase/firestore";
+import { useEffect } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { selectAdmin } from "../../features/adminSlice";
 import { db } from "../../firebase";
 import Bottomnav from "./Bottomnav";
 
 const AdminDashboardPanel = () => {
+    const navigate = useNavigate();
     const [totalOrders] = useCollection(query(collection(db, "orders")));
     const [totalNigerianFood] = useCollection(query(collection(db, "nigerian")));
     const [totalContinentalFood] = useCollection(query(collection(db, "continental")));
+
+    const user = useSelector(selectAdmin);
+    useEffect(() => {
+        if(!user) {
+            navigate("/admin");
+        }
+    });
     
     return ( 
         <div className="admin-dashboard-panel">

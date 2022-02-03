@@ -1,9 +1,18 @@
 import { Face, Fastfood } from "@mui/icons-material";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { selectAdmin } from "../../features/adminSlice";
 import Bottomnav from "./Bottomnav";
 
 const Add = () => {
     const navigate = useNavigate();
+    const user = useSelector(selectAdmin);
+    useEffect(() => {
+        if(!user) {
+            navigate("/admin");
+        }
+    });
 
     return ( 
         <div className="add">
