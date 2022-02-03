@@ -593,6 +593,78 @@
   background-color: #fff;
   margin-top: 5px;
 }
+/*****************************************************/
+.create-caterer-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: #fff !important;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  padding: 5px;
+}
+
+.create-caterer-btn .create-caterer-button {
+  background-color: #eb1e25;
+  color: white;
+  border-radius: 47px;
+  padding: 10px 80px;
+}
+
+.create-caterer-btn .create-caterer-button:hover {
+  background-color: #eb1e25;
+}
+
+.new-caterer {
+  background-color: #fff;
+  height: 100vh;
+}
+
+.new-caterer .container .header h5 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.new-caterer .container .header p {
+  font-size: 12px;
+}
+
+.new-caterer .container form {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.new-caterer .container form label {
+  font-weight: 600;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+.new-caterer .container form input {
+  border: 0.1px solid #000;
+  border-radius: 47px;
+  width: 100%;
+  padding: 15px 25px;
+  font-size: 12px;
+  background-color: #fff;
+  margin-top: 5px;
+}
+
+.create-space {
+  margin-top: 60px;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -826,7 +898,17 @@
     padding: 10px 25px;
     font-size: 14px;
   }
+  /*****************************************************/
+  .new-caterer .container form label {
+    margin-top: 20px;
+  }
+
+  .new-caterer .container form input {
+    padding: 10px 25px;
+  }
 }
+
+
 
 @media only screen and (min-width: 481px) and (max-width: 768px) { 
   /**************************************/
