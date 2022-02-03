@@ -564,6 +564,11 @@
 .meal-form {
   background-color: #fff;
   height: 100vh;
+  overflow-y: scroll;
+}
+
+.meal-form::-webkit-scrollbar {
+  display: none;
 }
 
 .meal-form .container .header h5 {
@@ -585,13 +590,19 @@
 }
 
 .meal-form .container form input {
-  border: 0.1px solid #000;
-  border-radius: 47px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid #dddddd;
   width: 100%;
   padding: 15px 25px;
   font-size: 12px;
   background-color: #fff;
   margin-top: 5px;
+}
+
+.add-space {
+  margin-top: 200px;
 }
 /*****************************************************/
 .create-caterer-btn {
@@ -643,18 +654,73 @@
 }
 
 .new-caterer .container form input {
-  border: 0.1px solid #000;
-  border-radius: 47px;
-  width: 100%;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid #dddddd;
+  width: 90%;
   padding: 15px 25px;
   font-size: 12px;
   background-color: #fff;
   margin-top: 5px;
 }
 
-.create-space {
-  margin-top: 60px;
+/*********************************************************************/
+.caterers {
+  background-color: #dddddd;
+  height: 100vh;
 }
+
+.caterers .container .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.caterers .container .inner .header h5 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.caterers .container .inner .admin-caterer-btn .admin-caterer-button {
+  background-color: #eb1e25;
+  color: white;
+  border-radius: 47px;
+  font-size: 10px !important;
+  font-weight: 200;
+  padding: 10px !important;
+}
+
+.successful {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.successful .successful-container {
+  background-color: #00ff00;
+  padding: 5px;
+  width: 35%; /*change the size of the modal box here*/
+  height: 300px; /*change the height of the modal box here*/
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 13% auto;
+  position: relative;
+}
+
+.successful .successful-container .inner {
+  margin: 0 auto;
+  text-align: center;
+  padding: 0px 50px;
+}
+
+
 
 
 

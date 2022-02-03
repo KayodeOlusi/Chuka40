@@ -69,6 +69,7 @@ const NewContinental = () => {
                     </form>
                 </div>
             </div>
+            <div className="add-space"></div>
             <div className="create-meal-btn text-center bg-danger"> 
                 <Button type = "submit" className = "create-meal-button" onClick = { addMeal }>
                     Create Item

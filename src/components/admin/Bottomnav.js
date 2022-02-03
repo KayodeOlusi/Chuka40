@@ -9,7 +9,7 @@ const Bottomnav = () => {
         <div className="bottom-nav">
             <Button> <Home onClick = {() => navigate("/dashboard")} /> </Button>
             <Button> <Add onClick = {() => navigate("/create")} /> </Button>
-            <Button> <PersonOutline /> </Button>
+            <Button> <PersonOutline onClick = {() => navigate("/profile")} /> </Button>
         </div>
      );
 }

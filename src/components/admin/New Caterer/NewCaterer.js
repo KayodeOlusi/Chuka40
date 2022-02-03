@@ -1,22 +1,17 @@
 import { Button } from "@mui/material";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase";
 
-const randomPassword = (min, max) => {
-    const num1 = (max - min) - 1;
-    const num2 = Math.random() * num1;
-    const result = Math.floor(num2);
-    return result;
-}
-
 const NewCaterer = () => {
+    const navigate = useNavigate();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [meals, setMeals] = useState("");
     const [gender, setGender] = useState("");
     const [number, setNumber] = useState("");
-    const password = randomPassword(100000, 200000);
+    const [password, setPassword] = useState("");
 
     const addCaterer = () => {
         if(!(name && email && meals && gender && number)) {
@@ -37,6 +32,12 @@ const NewCaterer = () => {
             console.log("created")
         })
         .catch(e => alert(e))
+        setName("");
+        setEmail("");
+        setMeals("");
+        setGender("");
+        setNumber("");
+        navigate("/dashboard");
     }
 
     return ( 
@@ -64,6 +65,15 @@ const NewCaterer = () => {
                             placeholder="Email" 
                             onChange = {e => setEmail(e.target.value)} 
                             value = { email } 
+                        /> <br/>
+                        <label htmlFor="password" className = "lead">Password</label> <br/>
+                        <input 
+                            type="text" 
+                            name="password" 
+                            id="password" 
+                            placeholder="Password" 
+                            onChange = {e => setPassword(e.target.value)} 
+                            value = { password } 
                         /> <br/>
                         <label htmlFor="meals" className = "lead">Assign Meals</label> <br/>
                         <input 
@@ -95,7 +105,7 @@ const NewCaterer = () => {
                     </form>
                 </div>
             </div>
-            <div className="create-space"></div>
+            <div className="add-space"></div>
             <div className="create-caterer-btn text-center bg-danger"> 
                 <Button type = "submit" className = "create-caterer-button" onClick = { addCaterer }>
                     Create Caterer
