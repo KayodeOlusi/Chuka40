@@ -1,35 +1,38 @@
 import { Button } from "@mui/material";
-import { auth } from "../../firebase";
-import { signInWithEmailAndPassword } from "@firebase/auth"
-import { useDispatch } from "react-redux";
-import { loginAsAdmin } from "../../features/adminSlice";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { holdCatererDetails } from "../../features/catererSlice";
+import { auth } from "../../firebase";
 
-const AdminLogin = () => {
-    const dispatch = useDispatch();
+const CatererLogin = () => {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState(""); 
+    const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [invalid, setInvalid] = useState(false)
 
     const loginToDashboard = (e) => {
         e.preventDefault();
+        if(!(email && password)) {
+            return false;
+        }
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            if(user.email !== "admin.chuka40@app.com" && user.password !== "admin123") {
-                console.log("not an admin")
-            }else {
-                dispatch(loginAsAdmin({
+            if(user.email === "admin.chuka40@app.com" && user.password === "admin123") {
+                console.log("not a caterer");
+            }
+            else {
+                dispatch(holdCatererDetails({
                     email: user.email,
                     password: user.password
                 }))
-                navigate("/dashboard");
+                navigate("/caterers/dashboard");
             }
         })
-        .catch(setInvalid(true))
-    }
+        .catch(e => console.log(e))
+    } 
 
     return ( 
         <>
@@ -40,8 +43,7 @@ const AdminLogin = () => {
                             <img src="https://static.vecteezy.com/system/resources/previews/000/554/708/original/lock-vector-icon.jpg" alt = "admin" />
                         </div>
                         <div className="col-lg-6 col-md-12 col-sm-12 admin-login-details text-center mt-3">
-                            <h2 className = "text-white">Login as Admin</h2>
-                            { invalid && <p style = {{ color: "red", fontSize: "12px" }}>Invalid Email or Password</p> }  
+                            <h4 className = "text-white">Login as Caterer</h4>
                             <form className = "text-center" onSubmit = { loginToDashboard }>
                                 <input type="text" placeholder = "Email" className = "" value = { email } onChange = {e => setEmail(e.target.value)} />
                                 <input type="password" placeholder = "Password" className = "mt-3" value = { password } onChange = {e => setPassword(e.target.value)} /> <br />
@@ -57,4 +59,4 @@ const AdminLogin = () => {
      );
 }
  
-export default AdminLogin;
+export default CatererLogin;

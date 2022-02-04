@@ -15,6 +15,9 @@ import NewCaterer from './components/admin/New Caterer/NewCaterer';
 import MealForm from './components/admin/New Meal/MealForm';
 import ContinentalForm from './components/admin/New Meal/ContinentalForm';
 import Caterers from './components/admin/Caterers';
+import CatererLogin from './components/caterers/CatererLogin';
+import CatererDashboard from './components/caterers/CatererDashboard';
+import TotalOrders from './components/caterers/TotalOrders';
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
             <Route path = "/create/continental/form" element = { <ContinentalForm /> } />
             <Route path = "/profile" element = { <Caterers /> } />
             <Route path = "/create/caterer" element = { <NewCaterer /> } />
+            <Route path = "/caterers" element = { <CatererLogin /> } />
+            <Route path = "/caterers/dashboard" element = { <CatererDashboard /> } />
+            <Route path = "/caterers/orders" element = { <TotalOrders /> } />
         </Routes>
     </div>
   );
