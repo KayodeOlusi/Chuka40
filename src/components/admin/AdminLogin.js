@@ -11,6 +11,7 @@ const AdminLogin = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); 
     const navigate = useNavigate();
+    const [invalid, setInvalid] = useState(false)
 
     const loginToDashboard = (e) => {
         e.preventDefault();
@@ -24,11 +25,10 @@ const AdminLogin = () => {
                     email: user.email,
                     password: user.password
                 }))
-                alert("logged in");
                 navigate("/dashboard");
             }
         })
-        .catch(e => alert(e))
+        .catch(setInvalid(true))
     }
 
     return ( 
@@ -40,7 +40,8 @@ const AdminLogin = () => {
                             <img src="https://static.vecteezy.com/system/resources/previews/000/554/708/original/lock-vector-icon.jpg" alt = "admin" />
                         </div>
                         <div className="col-lg-6 col-md-12 col-sm-12 admin-login-details text-center mt-3">
-                            <h2 className = "text-white">Login as Admin</h2>  
+                            <h2 className = "text-white">Login as Admin</h2>
+                            { invalid && <p style = {{ color: "red", fontSize: "12px" }}>Invalid Email or Password</p> }  
                             <form className = "text-center" onSubmit = { loginToDashboard }>
                                 <input type="text" placeholder = "Email" className = "" value = { email } onChange = {e => setEmail(e.target.value)} />
                                 <input type="password" placeholder = "Password" className = "mt-3" value = { password } onChange = {e => setPassword(e.target.value)} /> <br />
