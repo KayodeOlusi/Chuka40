@@ -4,10 +4,15 @@ import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { selectAdmin } from "../../features/adminSlice";
 import Bottomnav from "./Bottomnav";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { collection, query } from "firebase/firestore";
+import CatererDetails from "./CatererDetails";
+import { db } from "../../firebase";
 
 const Caterers = () => {
     const navigate = useNavigate();
     const user = useSelector(selectAdmin);
+    const [totalCaterers] = useCollection(query(collection(db, "users")));
 
     useEffect(() => {
         if(!user) {
@@ -27,9 +32,24 @@ const Caterers = () => {
                     </div>
                 </div>
                 {
-                    
+                    totalCaterers?.docs.map(doc => {
+                        const { catererName, catererEmail, catererPassword, catererGender, mealsAssigned, catererUid, catererNumber } = doc.data()
+                        return (
+                            <CatererDetails
+                                name = { catererName }
+                                email = { catererEmail }
+                                password = { catererPassword }
+                                gender = { catererGender }
+                                meals = { mealsAssigned }
+                                uid = { catererUid }
+                                number = { catererNumber }
+                                key = { catererUid } 
+                            />
+                        )
+                    })
                 }
             </div>
+            <div className="little-space"></div>
             <Bottomnav />
         </div>
      );

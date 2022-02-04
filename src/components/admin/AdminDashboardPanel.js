@@ -12,6 +12,7 @@ const AdminDashboardPanel = () => {
     const [totalOrders] = useCollection(query(collection(db, "orders")));
     const [totalNigerianFood] = useCollection(query(collection(db, "nigerian")));
     const [totalContinentalFood] = useCollection(query(collection(db, "continental")));
+    const [totalCaterers] = useCollection(query(collection(db, "users")));
 
     const user = useSelector(selectAdmin);
     useEffect(() => {
@@ -27,7 +28,9 @@ const AdminDashboardPanel = () => {
                     <div className="total-caterers col-6">
                         <div className="inner-total">
                             <h6>Total Caterers</h6>
-                            <h2>12</h2>
+                            {
+                                totalCaterers ? <h2>{ totalCaterers.docs.length }</h2> : <h2>0</h2>
+                            }
                         </div>
                     </div>
                     <div className="food-category col-6">

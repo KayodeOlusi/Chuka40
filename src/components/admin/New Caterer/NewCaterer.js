@@ -1,8 +1,9 @@
 import { Button } from "@mui/material";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../../firebase";
+import { auth, db } from "../../../firebase";
 
 const NewCaterer = () => {
     const navigate = useNavigate();
@@ -12,6 +13,7 @@ const NewCaterer = () => {
     const [gender, setGender] = useState("");
     const [number, setNumber] = useState("");
     const [password, setPassword] = useState("");
+    
 
     const addCaterer = () => {
         if(!(name && email && meals && gender && number)) {
@@ -19,19 +21,30 @@ const NewCaterer = () => {
         }
 
         createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        .then((userCredential) => {    
             const user = userCredential.user;
+            const user_uid = user.uid;
+            addDoc(collection(db, "users"), {
+                catererName: name,
+                catererEmail: email,
+                catererPassword: password,
+                mealsAssigned: meals,
+                catererGender: gender,
+                catererNumber: number,
+                catererUid: user_uid
+            })
             updateProfile(user, {
                 name: name,
                 email: email,
                 password: password,
                 mealsAssigned: meals,
                 gender: gender,
-                number: number
+                number: number,
+                uid: user_uid
             })
-            console.log("created")
+            console.log("created");
         })
-        .catch(e => alert(e))
+        .catch(e => alert(e));
         setName("");
         setEmail("");
         setMeals("");

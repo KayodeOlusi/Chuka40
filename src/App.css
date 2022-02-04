@@ -669,6 +669,15 @@
 .caterers {
   background-color: #dddddd;
   height: 100vh;
+  overflow-y: scroll;
+}
+
+.caterers::-webkit-scrollbar {
+  display: none;
+}
+
+.caterers .little-space {
+  margin-top: 200px !important;
 }
 
 .caterers .container .inner {
@@ -692,32 +701,33 @@
   padding: 10px !important;
 }
 
-.successful {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: none;
-  background-color: rgba(0, 0, 0, 0.5);
+/************************************************************/
+.caterer-details {
+  background-color: #fff;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  text-transform: capitalize;
 }
 
-.successful .successful-container {
-  background-color: #00ff00;
-  padding: 5px;
-  width: 35%; /*change the size of the modal box here*/
-  height: 300px; /*change the height of the modal box here*/
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  margin: 13% auto;
-  position: relative;
+.caterer-details .container .header h6 {
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
-.successful .successful-container .inner {
-  margin: 0 auto;
-  text-align: center;
-  padding: 0px 50px;
+.caterer-details .container .body p {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.caterer-details .container .delete-caterer {
+  background-color: #eee;
+}
+
+.caterer-details .container .delete-caterer .MuiSvgIcon-root {
+  color: #050726;
+  font-size: 30px;
 }
 
 
