@@ -19,7 +19,7 @@ const TotalOrders = () => {
             navigate("/caterers");
         };
         console.log(caterer); 
-    }, []);
+    });
 
     if(loading) {
         return (

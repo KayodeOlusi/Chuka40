@@ -1,4 +1,3 @@
-import { Avatar } from "@mui/material";
 import { collection } from "firebase/firestore";
 import { useEffect } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
@@ -17,7 +16,7 @@ const CatererDashboard = () => {
         if(!caterer) {
             navigate("/caterers");
         }  
-    }, [])
+    })
     
 
     return ( 

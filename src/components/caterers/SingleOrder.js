@@ -1,4 +1,4 @@
-import { Avatar, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import moment from 'moment';
 
 const SingleOrder = ({ email, id, tableNumber, meals, timestamp }) => {
