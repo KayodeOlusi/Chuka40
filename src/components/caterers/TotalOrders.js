@@ -18,7 +18,6 @@ const TotalOrders = () => {
         if(!caterer) {
             navigate("/caterers");
         };
-        console.log(caterer); 
     });
 
     if(loading) {

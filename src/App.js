@@ -19,6 +19,9 @@ import CatererLogin from './components/caterers/CatererLogin';
 import CatererDashboard from './components/caterers/CatererDashboard';
 import TotalOrders from './components/caterers/TotalOrders';
 import CatererStore from './components/caterers/CatererStore';
+import SingleNigerianFood from './components/caterers/SingleNigerianFood';
+import SingleContinentalFood from './components/caterers/SingleContinentalFood';
+import OrderDetails from './components/caterers/OrderDetails';
 
 function App() {
   return (
@@ -42,7 +45,10 @@ function App() {
             <Route path = "/caterers" element = { <CatererLogin /> } />
             <Route path = "/caterers/dashboard" element = { <CatererDashboard /> } />
             <Route path = "/caterers/orders" element = { <TotalOrders /> } />
+            <Route path = "/caterers/orders/details" element = { <OrderDetails /> } />
             <Route path = "/caterers/store" element = { <CatererStore /> } />
+            <Route path = "/nigerian" element = { <SingleNigerianFood /> } />
+            <Route path = "/continental" element = { <SingleContinentalFood /> } />
         </Routes>
     </div>
   );

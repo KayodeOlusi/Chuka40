@@ -423,7 +423,7 @@
 /****************************************************/
 .admin-dashboard-panel {
   background-color: #dddddd;
-  height: 100vh;
+  height: 120vh;
 }
 
 .admin-dashboard-panel .container .details {
@@ -773,6 +773,11 @@
 .caterer-store {
   background-color: #dddddd;
   height: 100vh;
+  overflow-y: scroll;
+}
+
+.caterer-store .some-space {
+  margin-top: 200px !important;
 }
 
 .caterer-store .container .details {
@@ -800,19 +805,68 @@
   border: none;
 }
 
-.caterer-store .container .details .food-menu-items .inner-menu {
-  background-color: #424dff;
-  padding: 10px;
-  border-radius: 16px;
-  border: none;
+.caterer-store .container p {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 20px;
 }
 
-.caterer-store .container .details .total-orders .inner-order {
-  background-color: #1bb10e;
-  padding: 10px;
-  border-radius: 16px;
-  border: none;
+.single-nigerian-food-container {
+  height: 200vh !important;
+  background-color: #dddddd;
 }
+
+.single-nigerian-food {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.single-nigerian-food-container .container h6 {
+  font-weight: 600;
+}
+
+.single-nigerian-food-container .container .single-nigerian-food h5 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.single-nigerian-food-container .container .single-nigerian-food h6 {
+  font-size: 12px;
+  color: gray;
+  text-transform: capitalize;
+}
+
+.single-continental-food-container {
+  height: 200vh !important;
+  background-color: #dddddd;
+}
+
+.single-continental-food {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.single-continental-food-container .container h6 {
+  font-weight: 600;
+}
+
+.single-continental-food-container .container .single-continental-food h5 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.single-continental-food-container .container .single-continental-food h6 {
+  font-size: 12px;
+  color: gray;
+  text-transform: capitalize;
+}
+
+
+
 
 
 
