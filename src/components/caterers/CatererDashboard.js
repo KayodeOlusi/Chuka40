@@ -1,10 +1,24 @@
+import { Avatar } from "@mui/material";
 import { collection } from "firebase/firestore";
+import { useEffect } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { selectCaterer } from "../../features/catererSlice";
 import { db } from "../../firebase";
 import CatererNav from "./CatererNav";
 
 const CatererDashboard = () => {
     const [totalOrders] = useCollection(collection(db, "orders"));
+    const caterer = useSelector(selectCaterer);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!caterer) {
+            navigate("/caterers");
+        }  
+    }, [])
+    
 
     return ( 
         <div className="admin-dashboard-panel">

@@ -12,9 +12,9 @@ export const catererSlice = createSlice({
     holdCatererDetails: (state, action) => {
         state.catererDetails = action.payload
     }
-  },
+  }
 });
 
 export const { holdCatererDetails } = catererSlice.actions;
-export const selectCaterer = (state) => state.caterer.catererDetails; 
+export const selectCaterer = (state) => state.caterer.catererDetails;
 export default catererSlice.reducer;

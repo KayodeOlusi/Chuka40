@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectTableNumber, selectFoodTray, selectGuestEmail } from "../../../features/guestSlice";
@@ -15,7 +15,8 @@ const Order = () => {
         addDoc(collection(db, "orders"), {
             table: tableNumber,
             email: guestEmail,
-            meals: orderedFood
+            meals: orderedFood,
+            timestamp: serverTimestamp()
         })
         navigate("/category/nigerian/order/update");
     }

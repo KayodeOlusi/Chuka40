@@ -19,38 +19,39 @@ const NewCaterer = () => {
         if(!(name && email && meals && gender && number)) {
             return false;
         }
-
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {    
-            const user = userCredential.user;
-            const user_uid = user.uid;
-            addDoc(collection(db, "users"), {
-                catererName: name,
-                catererEmail: email,
-                catererPassword: password,
-                mealsAssigned: meals,
-                catererGender: gender,
-                catererNumber: number,
-                catererUid: user_uid
+        else {
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {    
+                const user = userCredential.user;
+                const user_uid = user.uid;
+                addDoc(collection(db, "users"), {
+                    catererName: name,
+                    catererEmail: email,
+                    catererPassword: password,
+                    mealsAssigned: meals,
+                    catererGender: gender,
+                    catererNumber: number,
+                    catererUid: user_uid
+                })
+                updateProfile(user, {
+                    name: name,
+                    email: email,
+                    password: password,
+                    mealsAssigned: meals,
+                    gender: gender,
+                    number: number,
+                    uid: user_uid
+                })
+                console.log("created");
             })
-            updateProfile(user, {
-                name: name,
-                email: email,
-                password: password,
-                mealsAssigned: meals,
-                gender: gender,
-                number: number,
-                uid: user_uid
-            })
-            console.log("created");
-        })
-        .catch(e => alert(e));
-        setName("");
-        setEmail("");
-        setMeals("");
-        setGender("");
-        setNumber("");
-        navigate("/dashboard");
+            .catch(e => alert(e));
+            setName("");
+            setEmail("");
+            setMeals("");
+            setGender("");
+            setNumber("");
+            navigate("/dashboard");
+        }
     }
 
     return ( 

@@ -18,6 +18,7 @@ import Caterers from './components/admin/Caterers';
 import CatererLogin from './components/caterers/CatererLogin';
 import CatererDashboard from './components/caterers/CatererDashboard';
 import TotalOrders from './components/caterers/TotalOrders';
+import CatererStore from './components/caterers/CatererStore';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path = "/caterers" element = { <CatererLogin /> } />
             <Route path = "/caterers/dashboard" element = { <CatererDashboard /> } />
             <Route path = "/caterers/orders" element = { <TotalOrders /> } />
+            <Route path = "/caterers/store" element = { <CatererStore /> } />
         </Routes>
     </div>
   );
