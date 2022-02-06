@@ -1,19 +1,49 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { Button } from "@mui/material";
+import { doc } from "firebase/firestore";
+import moment from "moment";
+import { useDocument } from "react-firebase-hooks/firestore";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { selectOrderId } from "../../features/catererSlice";
+import { holdCompleted } from "../../features/guestSlice";
+import { db } from "../../firebase";
 import CatererNav from "./CatererNav";
 
 const OrderDetails = () => {
-    const theState = useSelector(selectOrderId)
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const checkTheOrderId = useSelector(selectOrderId);
+    const [checkOrderDetails] = useDocument(checkTheOrderId && doc(db, "orders", checkTheOrderId));
 
-    useEffect(() => {
-        console.log(theState)
-    })
+    const completeTheOrder = () => {
+        dispatch(holdCompleted({
+            completed: true
+        }))
+        navigate("caterers/orders")
+    }
 
     return ( 
         <div className="order-details">
-            <h2>hey</h2>
-
+            <div className="container">
+                <div className="header pt-4">
+                    <h4>Order Details</h4>  
+                </div>
+                    <div className="contents">
+                        <h5>Location</h5>
+                        <h6>Table No : { checkOrderDetails?.data().table }</h6>
+                        <h6>Time of Order : { moment(checkOrderDetails?.data().timestamp?.toDate()).calendar() }</h6>
+                        <hr />
+                        <h5>Order Items</h5>
+                        {
+                            checkOrderDetails?.data().meals.map((meal, index) => (
+                                <h6 key = { index }>{ meal }</h6>
+                            ))
+                        }
+                    </div>
+            </div>
+            <div className="complete-order-btn">
+                <Button className = "complete-order" onClick = { completeTheOrder }>Complete Order</Button>
+            </div>
             <CatererNav />
         </div>
      );

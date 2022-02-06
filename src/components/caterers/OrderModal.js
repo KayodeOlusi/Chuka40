@@ -5,6 +5,7 @@ import { useDocument } from "react-firebase-hooks/firestore";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom"
 import { holdShowModal, selectOrderId } from "../../features/catererSlice";
+import { holdInProgress } from "../../features/guestSlice";
 import { db } from "../../firebase";
 
 const OrderModal = () => {
@@ -19,6 +20,7 @@ const OrderModal = () => {
         dispatch(holdShowModal({
             showOrderModal: false
         }));
+        dispatch(holdInProgress)
     }
 
     const cancelOrder = () => {
@@ -37,7 +39,7 @@ const OrderModal = () => {
                 <div className="contents">
                     <h5>{ checkOrderDetails?.data().email }</h5>
                     <h6>Table : { checkOrderDetails?.data().table }</h6>
-                    <h6>{  moment(checkOrderDetails?.data().time?.toDate()).fromNow() }</h6>
+                    <h6>{  moment(checkOrderDetails?.data().timestamp?.toDate()).calendar() }</h6>
                 </div>
                 <div className="caterer-modal-btns mt-3">
                     <Cancel style = {{ color: "red" }} onClick = { cancelOrder } />

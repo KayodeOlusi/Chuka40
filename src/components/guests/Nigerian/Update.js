@@ -1,8 +1,12 @@
 import { Button } from "@mui/material";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { selectCompleted, selectInProgress } from "../../../features/guestSlice";
 
 const Update = () => {
     const navigate = useNavigate();
+    const isInProgress = useSelector(selectInProgress);
+    const isCompleted = useSelector(selectCompleted);
 
     const toHome = () => {
         navigate("/")
@@ -24,11 +28,11 @@ const Update = () => {
                             <h4>Order Placed</h4>
                             <p>Order is placed successfully</p>
                         </div>
-                        <div className="in-progress">
+                        <div className= {`in-progress ${ isInProgress && "processing" }`}>
                             <h4>In Progress</h4>
                             <p>Your order is being prepared</p>
                         </div>
-                        <div className="served">
+                        <div className= {`served ${ isCompleted && "order-is-completed" }`}>
                             <h4>Served</h4>
                             <p>Enjoy your meal!</p>
                         </div>

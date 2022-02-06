@@ -372,6 +372,18 @@
   margin-bottom: 10px;
 }
 
+.update .container .update-status .processing {
+  border-left : 3px solid #00ff00;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.update .container .update-status .order-is-completed {
+  border-left : 3px solid #00ff00;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
 .update .container .update-status .in-progress, .served {
   padding: 10px 20px;
   margin-bottom: 20px;
@@ -772,6 +784,10 @@
   font-weight: 600;
 }
 
+.total-orders .add-space-to-order {
+  margin-top: 100px;
+}
+
 .single-order .container .header h5 {
   font-size: 14px;
   font-weight: 700;
@@ -847,6 +863,10 @@
   font-weight: 600;
 }
 
+.single-nigerian-food-container .container p {
+  color: green;
+}
+
 .single-nigerian-food-container .container .single-nigerian-food h5 {
   font-size: 14px;
   font-weight: 600;
@@ -884,6 +904,46 @@
   color: gray;
   text-transform: capitalize;
 }
+
+.order-details {
+  background-color: #dddddd;
+  height: 100vh;
+}
+
+.order-details .container .header h4 {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.order-details .container .contents {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.order-details .container .contents h5 {
+  font-weight: 600;
+}
+
+.order-details .container .contents h6 {
+  font-size: 14px;
+  color: gray;
+}
+
+.order-details .complete-order-btn {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.order-details .complete-order-btn .complete-order {
+  background-color: #00ff00;
+  border-radius: 47px;
+  color: white;
+  font-size: 12px;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+
 
 
 

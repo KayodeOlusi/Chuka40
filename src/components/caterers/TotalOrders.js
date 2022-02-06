@@ -74,6 +74,7 @@ const TotalOrders = () => {
                     }
                 </div>
             </div>
+            <div className="add-space-to-order"></div>
             <CatererNav />
         </div>
      );
