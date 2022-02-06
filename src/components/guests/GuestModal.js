@@ -39,7 +39,7 @@ const GuestModal = () => {
                 </div>
                 <div className="contents mt-3">
                   <form onClick = { addTableNumber }>
-                      <input type="text" value = { username } onChange={(e) => setUsername(e.target.value)} placeholder = "Enter Your Email Address..." />
+                      <input type="text" value = { username } onChange={(e) => setUsername(e.target.value)} placeholder = "Name or Email Address..." />
                       <input type="number" value = { input } onChange={(e) => setInput(e.target.value)} placeholder = "Table Number..." className="mt-3 table-number" /> <br/>
                       <Button className="btn modal-button text-center" type = "submit">
                         Proceed
