@@ -22,6 +22,7 @@ import CatererStore from './components/caterers/CatererStore';
 import SingleNigerianFood from './components/caterers/SingleNigerianFood';
 import SingleContinentalFood from './components/caterers/SingleContinentalFood';
 import OrderDetails from './components/caterers/OrderDetails';
+import Completed from './components/caterers/Completed';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
             <Route path = "/caterers/store" element = { <CatererStore /> } />
             <Route path = "/nigerian" element = { <SingleNigerianFood /> } />
             <Route path = "/continental" element = { <SingleContinentalFood /> } />
+            <Route path = "/caterers/completed" element = { <Completed /> } />
         </Routes>
     </div>
   );

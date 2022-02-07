@@ -20,7 +20,7 @@ const OrderModal = () => {
         dispatch(holdShowModal({
             showOrderModal: false
         }));
-        dispatch(holdInProgress)
+        dispatch(holdInProgress);
     }
 
     const cancelOrder = () => {
@@ -37,7 +37,6 @@ const OrderModal = () => {
                     <p>Start Processing Order?</p>
                 </div>
                 <div className="contents">
-                    <h5>{ checkOrderDetails?.data().email }</h5>
                     <h6>Table : { checkOrderDetails?.data().table }</h6>
                     <h6>{  moment(checkOrderDetails?.data().timestamp?.toDate()).calendar() }</h6>
                 </div>

@@ -779,7 +779,17 @@
   border-radius: 10px;
 }
 
-.total-orders .container .the-orders h5 {
+.total-orders .container .the-orders .order-cart {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-orders .container .the-orders .order-cart .all {
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+}
+
+.total-orders .container .the-orders .order-cart h5 {
   font-size: 14px;
   font-weight: 600;
 }
@@ -796,6 +806,12 @@
 .single-order .container .header h6 {
   font-size: 12px;
   font-weight: 500;
+}
+
+.single-order .container .header p {
+  color: #00ff00;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .single-order .container .single-order-btn {
@@ -930,6 +946,12 @@
   color: gray;
 }
 
+.order-details .container .contents p {
+  font-size: 12px;
+  color: #00ff00;
+  font-weight: 600;
+}
+
 .order-details .complete-order-btn {
   margin-top: 20px;
   text-align: center;
@@ -943,6 +965,93 @@
   padding: 10px 20px;
   font-weight: 600;
 }
+
+.completed {
+  background-color: #dddddd;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.completed::-webkit-scrollbar {
+  display: none;
+}
+
+.completed .completed-space {
+  margin-top: 80px;
+}
+
+.completed .container .the-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.completed .container .the-link h5 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.completed .container .the-link .compl_ete {
+  border-bottom: 2px solid #000;
+  padding: 5px;
+}
+
+.completed .container .header h4 {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.completed .container .the-completed {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.completed .container .the-completed h5 {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.completed .container .the-completed h6 {
+  font-size: 14px;
+  color: gray;
+}
+
+.completed .container .the-completed .completed-order-btn {
+  background-color: #eb1e25;
+  font-size: 12px;
+  text-transform: capitalize;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 47px;
+}
+
+/****************************************/
+.admin-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.admin-modal .admin-modal-container {
+  background-color: #f4f4f4;
+  padding: 5px;
+  width: 90%; /*change the size of the modal box here*/
+  height: 450px; /*change the height of the modal box here*/
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 13% auto;
+  position: relative;
+}
+
+
+
+
 
 
 

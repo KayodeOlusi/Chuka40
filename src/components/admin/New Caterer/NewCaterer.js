@@ -2,18 +2,28 @@ import { Button } from "@mui/material";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { selectAdminModal, holdAdminModal } from "../../../features/adminSlice";
 import { auth, db } from "../../../firebase";
+import AdminModal from "../AdminModal";
 
 const NewCaterer = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [meals, setMeals] = useState("");
     const [gender, setGender] = useState("");
     const [number, setNumber] = useState("");
     const [password, setPassword] = useState("");
+    const selectModal = useSelector(selectAdminModal)
     
+    const showTheModal = () => {
+        dispatch(holdAdminModal({
+            showAdminModal: true
+        }))
+    }
 
     const addCaterer = () => {
         if(!(name && email && meals && gender && number)) {
@@ -56,6 +66,9 @@ const NewCaterer = () => {
 
     return ( 
         <>
+            {
+                selectModal && <AdminModal />
+            }
             <div className="new-caterer">
                 <div className="container">
                     <div className="header pt-3">
@@ -96,7 +109,8 @@ const NewCaterer = () => {
                             id = "meals" 
                             placeholder = "Seperate with a coma" 
                             onChange = {e => setMeals(e.target.value)} 
-                            value = { meals } 
+                            value = { meals }
+                            onClick = { showTheModal } 
                         /> <br/>
                         <label htmlFor="gender" className = "lead">Gender</label> <br/>
                         <input 

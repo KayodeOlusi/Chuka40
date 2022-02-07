@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  user: null
+  user: null,
+  showAdminModal: false
 };
 
 
@@ -14,10 +15,14 @@ export const adminSlice = createSlice({
     },
     logoutAsAdmin: (state) => {
         state.user = null
+    },
+    holdAdminModal: (state, action) => {
+      state.showAdminModal = action.payload.showAdminModal
     }
   },
 });
 
-export const { loginAsAdmin, logoutAsAdmin } = adminSlice.actions;
+export const { loginAsAdmin, logoutAsAdmin, holdAdminModal } = adminSlice.actions;
 export const selectAdmin = (state) => state.admin.user;
+export const selectAdminModal = (state) => state.admin.showAdminModal;
 export default adminSlice.reducer;
