@@ -11,7 +11,6 @@ const Update = () => {
     const isCompleted = useSelector(selectCompleted);
     const progress = useSelector(selectChangeProgress);
     const complete = useSelector(selectChangeCompleted);
-    // Work on changing color of line next
 
     const toHome = () => {
         navigate("/")
