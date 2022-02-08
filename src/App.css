@@ -206,6 +206,13 @@
   text-transform: capitalize;
 }
 
+.checkbox .desc .status {
+  font-size: 12px;
+  text-transform: capitalize;
+  color: #000;
+  font-weight: 600;
+}
+
 .checkbox .desc p {
   color: gray;
   font-size: 12px;
@@ -914,6 +921,16 @@
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+.single-continental-food .edit-btn {
+  color: #050726;
+  background-color: #ddd;
+  font-size: 12px;
+  text-transform: capitalize;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 47px;
 }
 
 .single-continental-food-container .container h6 {

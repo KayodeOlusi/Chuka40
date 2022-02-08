@@ -7,7 +7,7 @@ const CheckBox = ({ name, toppings, id, onChange, status, ...rest }) => {
                 </div>
                 <div className="desc">
                     <p>{ toppings }</p>
-                    <p>{ status }</p>
+                    <p className="status">{ status }</p>
                 </div>   
             </form> 
      );
