@@ -20,7 +20,9 @@ const OrderModal = () => {
         dispatch(holdShowModal({
             showOrderModal: false
         }));
-        dispatch(holdInProgress);
+        dispatch(holdInProgress({
+            inProgress: true
+        }));
     }
 
     const cancelOrder = () => {

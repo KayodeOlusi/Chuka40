@@ -4,7 +4,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { selectAdminModal, holdAdminModal } from "../../../features/adminSlice";
+import { selectAdminModal, holdAdminModal, selectAssignedMeals } from "../../../features/adminSlice";
 import { auth, db } from "../../../firebase";
 import AdminModal from "../AdminModal";
 
@@ -13,11 +13,11 @@ const NewCaterer = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [meals, setMeals] = useState("");
     const [gender, setGender] = useState("");
     const [number, setNumber] = useState("");
     const [password, setPassword] = useState("");
-    const selectModal = useSelector(selectAdminModal)
+    const selectModal = useSelector(selectAdminModal);
+    const selectMeals = useSelector(selectAssignedMeals)
     
     const showTheModal = () => {
         dispatch(holdAdminModal({
@@ -26,7 +26,7 @@ const NewCaterer = () => {
     }
 
     const addCaterer = () => {
-        if(!(name && email && meals && gender && number)) {
+        if(!(name && email && selectMeals && gender && number)) {
             return false;
         }
         else {
@@ -38,7 +38,7 @@ const NewCaterer = () => {
                     catererName: name,
                     catererEmail: email,
                     catererPassword: password,
-                    mealsAssigned: meals,
+                    mealsAssigned: selectMeals,
                     catererGender: gender,
                     catererNumber: number,
                     catererUid: user_uid
@@ -47,7 +47,7 @@ const NewCaterer = () => {
                     name: name,
                     email: email,
                     password: password,
-                    mealsAssigned: meals,
+                    mealsAssigned: selectMeals,
                     gender: gender,
                     number: number,
                     uid: user_uid
@@ -57,7 +57,6 @@ const NewCaterer = () => {
             .catch(e => alert(e));
             setName("");
             setEmail("");
-            setMeals("");
             setGender("");
             setNumber("");
             navigate("/dashboard");
@@ -107,9 +106,8 @@ const NewCaterer = () => {
                             type = "text" 
                             name = "meals" 
                             id = "meals" 
-                            placeholder = "Seperate with a coma" 
-                            onChange = {e => setMeals(e.target.value)} 
-                            value = { meals }
+                            placeholder = "Seperate with a coma"  
+                            value = { selectMeals }
                             onClick = { showTheModal } 
                         /> <br/>
                         <label htmlFor="gender" className = "lead">Gender</label> <br/>
