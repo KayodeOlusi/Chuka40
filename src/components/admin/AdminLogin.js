@@ -10,14 +10,14 @@ const AdminLogin = () => {
     const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const loginToDashboard = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            if(!(user.email && user.password)) {
+            if(!(email && password)) {
                 console.log("not an admin")
             }else {
                 dispatch(loginAsAdmin({
@@ -28,7 +28,7 @@ const AdminLogin = () => {
             }
         })
         .catch(e => console.log(e))
-    }
+    };
 
     return ( 
         <>

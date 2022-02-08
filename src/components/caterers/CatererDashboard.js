@@ -24,7 +24,7 @@ const CatererDashboard = () => {
             <div className="container">
                 <div className="details row gy-2">
                     <div className="total-caterers col-6">
-                        <div className="inner-total">
+                        <div className="inner-total" onClick={() => navigate("/caterers/orders")}>
                             <h6>Total Orders</h6>
                             {
                                 totalOrders ? <h2>{ totalOrders.docs.length }</h2> : <h2>0</h2>
@@ -32,7 +32,7 @@ const CatererDashboard = () => {
                         </div>
                     </div>
                     <div className="food-category col-6">
-                        <div className="inner-food">
+                        <div className="inner-food" onClick={() => navigate("/caterers/store")}>
                             <h6>Food Categories</h6>
                             <h2>2</h2>
                         </div>
