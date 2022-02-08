@@ -17,7 +17,7 @@ const AdminLogin = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            if(!(user.email && user.password)) {
+            if(!(email && password)) {
                 console.log("not an admin")
             }else {
                 dispatch(loginAsAdmin({
