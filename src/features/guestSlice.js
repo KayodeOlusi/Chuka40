@@ -7,7 +7,9 @@ const initialState = {
   foodTray: [],
   successful: false,
   inProgress: false,
-  completed: false
+  completed: false,  
+  changeProgress: false,
+  changeSuccess: false 
 };
 
 
@@ -35,11 +37,17 @@ export const guestSlice = createSlice({
     },
     holdCompleted: (state, action) => {
       state.completed = action.payload.completed
+    },
+    holdChangeProgress: (state, action) => {
+      state.changeProgress = action.payload.changeProgress
+    },
+    holdChangeCompleted: (state, action) => {
+      state.changeCompleted = action.payload.changeCompleted
     }
   },
 });
 
-export const { holdTableNumber, holdFoodTray, holdModalState, holdGuestEmail, holdInProgress, holdCompleted } = guestSlice.actions;
+export const { holdChangeProgress, holdChangeCompleted, holdTableNumber, holdFoodTray, holdModalState, holdGuestEmail, holdInProgress, holdCompleted } = guestSlice.actions;
 export const selectTableNumber = (state) => state.guest.tableNumber;
 export const selectFoodTray = (state) => state.guest.foodTray;
 export const selectModalState = (state) => state.guest.modalState;
@@ -47,4 +55,6 @@ export const selectGuestEmail = (state) => state.guest.guestEmail;
 export const selectSuccess = (state) => state.guest.successful;
 export const selectInProgress = (state) => state.guest.inProgress;
 export const selectCompleted = (state) => state.guest.completed;
+export const selectChangeProgress = (state) => state.guest.changeProgress;
+export const selectChangeCompleted = (state) => state.guest.changeCompleted;
 export default guestSlice.reducer;

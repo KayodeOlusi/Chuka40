@@ -1,12 +1,17 @@
 import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { selectCompleted, selectInProgress } from "../../../features/guestSlice";
+import ProcessModal from "../ProcessModal";
+import SuccessModal from "../SuccessModal";
+import { selectChangeCompleted, selectChangeProgress, selectCompleted, selectInProgress } from "../../../features/guestSlice";
 
 const Update = () => {
     const navigate = useNavigate();
     const isInProgress = useSelector(selectInProgress);
     const isCompleted = useSelector(selectCompleted);
+    const progress = useSelector(selectChangeProgress);
+    const complete = useSelector(selectChangeCompleted);
+    // Work on changing color of line next
 
     const toHome = () => {
         navigate("/")
@@ -14,6 +19,12 @@ const Update = () => {
 
     return ( 
         <>
+            {
+                isInProgress && <ProcessModal />
+            }
+            {
+                isCompleted && <SuccessModal />
+            }
             <div className="update">
                 <div className="container">
                     <div className="update-header">
@@ -28,11 +39,11 @@ const Update = () => {
                             <h4>Order Placed</h4>
                             <p>Order is placed successfully</p>
                         </div>
-                        <div className= {`in-progress ${ isInProgress && "processing" }`}>
+                        <div className= {`in-progress ${ progress && "processing" }`}>
                             <h4>In Progress</h4>
                             <p>Your order is being prepared</p>
                         </div>
-                        <div className= {`served ${ isCompleted && "order-is-completed" }`}>
+                        <div className= {`served ${ complete && "order-is-completed" }`}>
                             <h4>Served</h4>
                             <p>Enjoy your meal!</p>
                         </div>

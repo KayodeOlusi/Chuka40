@@ -344,7 +344,7 @@
 
 /*******************Update Component*****************************/
 .update {
-  background-color: #dddddd;
+  background-color: #fff;
   height: 100vh;
   position: relative;
 }
@@ -367,13 +367,13 @@
 }
 
 .update .container .update-status .successful {
-  border-left : 3px solid #00ff00;
+  border-left : 3px solid #00ff00 !important;
   padding: 10px 20px;
   margin-bottom: 10px;
 }
 
 .update .container .update-status .processing {
-  border-left : 3px solid #00ff00;
+  border-left : 3px solid #00ff00 !important;
   padding: 10px 20px;
   margin-bottom: 10px;
 }
@@ -1047,10 +1047,101 @@
   border-radius: 5px;
   margin: 13% auto;
   position: relative;
+  overflow-y: scroll;
 }
 
+.admin-modal .admin-modal-container .header h5 {
+  font-size: 16px;
+  font-weight: 600;
+}
 
+.admin-modal .admin-modal-container .admin-modal-btns {
+  text-align: center;
+}
 
+.admin-modal .admin-modal-container .admin-modal-btns .admin-modal-single-btn {
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 47px;
+  background-color: #eb1e25;
+  color: white;
+}
+
+.process-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.process-modal .process-modal-container {
+  background-color: #f4f4f4;
+  padding: 5px;
+  width: 90%; /*change the size of the modal box here*/
+  height: 100px; /*change the height of the modal box here*/
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 13% auto;
+  position: relative;
+}
+
+.process-modal .process-modal-container h3 {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.process-modal .process-modal-container .process-order-btn {
+  text-align: center;
+  font-size: 12px;
+}
+
+.process-modal .process-modal-container .process-order-btn .MuiSvgIcon-root {
+  color: #000;
+}
+
+.success-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.success-modal .success-modal-container {
+  background-color: #fff;
+  padding: 5px;
+  width: 90%; /*change the size of the modal box here*/
+  height: 100px; /*change the height of the modal box here*/
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 13% auto;
+  position: relative;
+}
+
+.success-modal .success-modal-container h3 {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.success-modal .success-modal-container .success-order-btn {
+  text-align: center;
+  font-size: 12px;
+}
+
+.success-modal .success-modal-container .success-order-btn .MuiSvgIcon-root {
+  color: #00ff00;
+}
 
 
 
