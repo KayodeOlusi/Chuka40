@@ -1,44 +1,42 @@
-import { Button } from "@mui/material";
-import { addDoc, collection } from "firebase/firestore";
+import { Cancel, CheckCircle } from "@mui/icons-material";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { selectAdmin } from "../../../features/adminSlice";
-import { db } from '../../../firebase';
+import { useDispatch, useSelector } from "react-redux";
+import { holdShowEdit, selectEditId } from "../../features/catererSlice";
+import { doc, setDoc } from "firebase/firestore"; 
+import { db } from "../../firebase";
 
-const MealForm = () => {
+const EditModal = () => {
     const [name, setName] = useState("");
     const [ingredient, setIngredient] = useState("");
     const [available, setAvailable] = useState("");
-    const navigate = useNavigate();
-    const user = useSelector(selectAdmin);
+    const dispatch = useDispatch();
+    const theEditedId = useSelector(selectEditId);
 
-    const addMeal = () => {
-        if(!(name && ingredient && available)) {
-            return false;
-        }
-        addDoc(collection(db, "nigerian"), {
+    useState(() => {
+        console.log(theEditedId)
+    }, []);
+    
+    const cancelEdit = () => {
+        dispatch(holdShowEdit({
+            editModal: false
+        }))
+    };
+
+    const confirmEdit = () => {
+        setDoc(doc(db, "nigerian", theEditedId), {
             name: name,
-            status: available,
-            toppings: ingredient
+            toppings: ingredient,
+            status: available
         });
-        navigate("/dashboard");
-        console.log("successful");
+        dispatch(holdShowEdit({
+            editModal: false
+        }))
     }
 
-    if(!user) {
-        navigate("/admin");
-    }
-
-    return (
-        <> 
-            <div className="meal-form">
-                <div className="container">
-                    <div className="header pt-5">
-                       <h5>New Food Item</h5> 
-                       <p>Add a new food item</p>
-                    </div>
-                    <form className="mt-5">
+    return ( 
+        <div className="edited-modal">
+            <div className="edited-modal-container">
+                <form className="mt-5">
                         <label htmlFor="name" className = "lead">Name of Food</label> <br/>
                         <input
                             type="text"
@@ -66,17 +64,14 @@ const MealForm = () => {
                             onChange = {e => setAvailable(e.target.value)} 
                             value = { available } 
                         /> <br/>
-                    </form>
+                </form>
+                <div className="edit-modal-btns mt-3">
+                    <Cancel style = {{ color: "red" }} onClick = { cancelEdit } />
+                    <CheckCircle style = {{ color: "green" }} onClick = { confirmEdit } />
                 </div>
-                <div className="add-space"></div>
             </div>
-            <div className="create-meal-btn text-center bg-danger"> 
-                <Button type = "submit" className = "create-meal-button" onClick = { addMeal }>
-                    Create Item
-                </Button>
-            </div>
-        </>
+        </div>
      );
 }
  
-export default MealForm;
+export default EditModal;

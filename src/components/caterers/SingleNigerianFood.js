@@ -1,11 +1,16 @@
 import { Skeleton } from "@mui/material";
 import { collection, query } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { useSelector } from "react-redux";
+import { selectEditModal } from "../../features/catererSlice";
 import { db } from "../../firebase";
 import CatererNav from './CatererNav'
+import Edited from "./Edited";
+import EditModal from "./EditModal";
 
 const SingleNigerianFood = () => {
     const [totalNigerianFood, loading] = useCollection(query(collection(db, "nigerian")));
+    const edit = useSelector(selectEditModal);
 
     if(loading) {
         return (
@@ -39,20 +44,27 @@ const SingleNigerianFood = () => {
     }
 
     return ( 
-        <div className = "single-nigerian-food-container">
-            <div className="container">
-                <h6 className = "pt-3 pb-3">Nigerian Meals</h6>
-                {
-                    totalNigerianFood?.docs.map(doc => (
-                        <div className = "single-nigerian-food" key = { doc.id }>
-                            <h5>{ doc.data().name }</h5>
-                            <h6>{ doc.data().toppings }</h6>
-                        </div>
-                    ))
-                }
+        <>
+            {
+                edit && <EditModal />
+            }
+            <div className = "single-nigerian-food-container">
+                <div className="container">
+                    <h6 className = "pt-3 pb-3">Nigerian Meals</h6>
+                    {
+                        totalNigerianFood?.docs.map(doc => (
+                            <Edited
+                                name = { doc.data().name }
+                                toppings = { doc.data().toppings }
+                                key = { doc.id }
+                                id = { doc.id }
+                            />
+                        ))
+                    }
+                </div>
+                <CatererNav />
             </div>
-            <CatererNav />
-        </div>
+        </>
      );
 }
  

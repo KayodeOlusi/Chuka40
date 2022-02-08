@@ -9,17 +9,17 @@ import { useSelector } from 'react-redux'
 const NewContinental = () => {
     const [name, setName] = useState("");
     const [ingredient, setIngredient] = useState("");
-    const [portion, setPortion] = useState("");
+    const [available, setAvailable] = useState("");
     const navigate = useNavigate();
     const user = useSelector(selectAdmin);
 
     const addMeal = () => {
-        if(!(name && ingredient && portion)) {
+        if(!(name && ingredient && available)) {
             return false;
         }
         addDoc(collection(db, "continental"), {
             name: name,
-            quantity: portion,
+            status: available,
             toppings: ingredient
         });
         navigate("/dashboard");
@@ -57,14 +57,14 @@ const NewContinental = () => {
                             onChange = {e => setIngredient(e.target.value)} 
                             value = { ingredient } 
                         /> <br/>
-                        <label htmlFor="portions" className = "lead">Portions Available</label> <br/>
+                        <label htmlFor="available" className = "lead">Status</label> <br/>
                         <input 
-                            type = "number" 
-                            name = "portions" 
-                            id = "portions" 
+                            type = "text" 
+                            name = "available" 
+                            id = "available" 
                             placeholder = "Portions" 
-                            onChange = {e => setPortion(e.target.value)} 
-                            value = { portion } 
+                            onChange = {e => setAvailable(e.target.value)} 
+                            value = { available } 
                         /> <br/>
                     </form>
                 </div>

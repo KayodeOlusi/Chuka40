@@ -894,6 +894,16 @@
   text-transform: capitalize;
 }
 
+.single-nigerian-food-container .container .edit-btn {
+  color: #050726;
+  background-color: #ddd;
+  font-size: 12px;
+  text-transform: capitalize;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 47px;
+}
+
 .single-continental-food-container {
   height: 200vh !important;
   background-color: #dddddd;
@@ -1142,6 +1152,53 @@
 .success-modal .success-modal-container .success-order-btn .MuiSvgIcon-root {
   color: #00ff00;
 }
+
+.edited-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.edited-modal .edited-modal-container {
+  background-color: #fff;
+  padding: 5px;
+  width: 90%; /*change the size of the modal box here*/
+  height: 400px; /*change the height of the modal box here*/
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 10% auto;
+  position: relative;
+  text-align: center;
+}
+
+.edited-modal .edited-modal-container form label {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.edited-modal .edited-modal-container form input {
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid #dddddd;
+  width: 90%;
+  padding: 15px 25px;
+  font-size: 12px;
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+
+.edited-modal .edited-modal-container .edit-modal-btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 
 
 
