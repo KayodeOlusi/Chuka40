@@ -13,7 +13,7 @@ const Update = () => {
     const complete = useSelector(selectChangeCompleted);
 
     const toHome = () => {
-        navigate("/")
+        navigate("/");
     }
 
     return ( 
