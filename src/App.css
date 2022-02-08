@@ -1041,7 +1041,7 @@
 .admin-modal .admin-modal-container {
   background-color: #f4f4f4;
   padding: 5px;
-  width: 90%; /*change the size of the modal box here*/
+  width: 95%; /*change the size of the modal box here*/
   height: 450px; /*change the height of the modal box here*/
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;

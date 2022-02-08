@@ -10,15 +10,14 @@ const AdminLogin = () => {
     const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); 
-    const navigate = useNavigate();
-    const [invalid, setInvalid] = useState(false)
+    const navigate = useNavigate()
 
     const loginToDashboard = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            if(user.email !== "admin.chuka40@app.com" && user.password !== "admin123") {
+            if(!(user.email && user.password)) {
                 console.log("not an admin")
             }else {
                 dispatch(loginAsAdmin({
@@ -28,7 +27,7 @@ const AdminLogin = () => {
                 navigate("/dashboard");
             }
         })
-        .catch(setInvalid(true))
+        .catch(e => console.log(e))
     }
 
     return ( 
@@ -41,7 +40,6 @@ const AdminLogin = () => {
                         </div>
                         <div className="col-lg-6 col-md-12 col-sm-12 admin-login-details text-center mt-3">
                             <h2 className = "text-white">Login as Admin</h2>
-                            { invalid && <p style = {{ color: "red", fontSize: "12px" }}>Invalid Email or Password</p> }  
                             <form className = "text-center" onSubmit = { loginToDashboard }>
                                 <input type="text" placeholder = "Email" className = "" value = { email } onChange = {e => setEmail(e.target.value)} />
                                 <input type="password" placeholder = "Password" className = "mt-3" value = { password } onChange = {e => setPassword(e.target.value)} /> <br />
