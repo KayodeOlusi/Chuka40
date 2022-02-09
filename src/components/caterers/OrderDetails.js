@@ -1,19 +1,16 @@
 import { Button } from "@mui/material";
-import { addDoc, collection, doc } from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import moment from "moment";
 import { useDocument } from "react-firebase-hooks/firestore";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectOrderId } from "../../features/catererSlice";
-import { holdCompleted, selectCompleted } from "../../features/guestSlice";
 import { db } from "../../firebase";
 import CatererNav from "./CatererNav";
 
 const OrderDetails = () => {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const checkTheOrderId = useSelector(selectOrderId);
-    const isOrderCompleted = useSelector(selectCompleted);
     const [checkOrderDetails] = useDocument(checkTheOrderId && doc(db, "orders", checkTheOrderId));
     const theTable = checkOrderDetails?.data().table;
     const theTime = checkOrderDetails?.data().timestamp;
@@ -21,15 +18,16 @@ const OrderDetails = () => {
     const theEmail = checkOrderDetails?.data().email;
 
     const completeTheOrder = () => {
-        dispatch(holdCompleted({
-            completed: true
-        }));
         addDoc(collection(db, "completed"), {
             table: theTable,
             email: theEmail,
             time: theTime,
             meals: theMeals
         });
+        updateDoc(doc(db, "orders", checkTheOrderId), {
+            complete: Boolean(true)
+        })
+
         navigate("/caterers/orders");
     };
 
@@ -51,7 +49,6 @@ const OrderDetails = () => {
                                 <h6 key = { index }>{ meal }</h6>
                             ))
                         }
-                        { isOrderCompleted && <p>Completed Successfully</p> }
                     </div>
             </div>
             <div className="complete-order-btn">

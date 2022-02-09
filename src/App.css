@@ -206,6 +206,19 @@
   text-transform: capitalize;
 }
 
+.checkbox .desc {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.checkbox .desc img {
+  height: 50px;
+  width: 80px;
+  border: none;
+  border-radius: 10px;
+}
+
 .checkbox .desc .status {
   font-size: 12px;
   text-transform: capitalize;
@@ -1496,7 +1509,7 @@
 
   .the-modal .modal-container .header p {
     font-size: 11px;
-    padding: 5px 40px;
+    padding: 5px 5px;
   }
 
   .the-modal .modal-container .contents form {
@@ -1599,8 +1612,8 @@
   }
 
   .the-modal .modal-container .header p {
-    font-size: 13px;
-    padding: 5px 30px;
+    font-size: 10px;
+    padding: 5px 10px;
   }
 
   .the-modal .modal-container .contents form {

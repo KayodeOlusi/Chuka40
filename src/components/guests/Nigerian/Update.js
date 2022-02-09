@@ -3,26 +3,44 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ProcessModal from "../ProcessModal";
 import SuccessModal from "../SuccessModal";
-import { selectChangeCompleted, selectChangeProgress, selectCompleted, selectInProgress } from "../../../features/guestSlice";
+import { selectChangeCompleted, selectChangeProgress, selectGuestInit } from "../../../features/guestSlice";
+import { useCollection, useDocument } from "react-firebase-hooks/firestore";
+import { collection, doc, query } from "firebase/firestore";
+import { db } from "../../../firebase";
+import { useEffect, useState } from "react";
 
 const Update = () => {
     const navigate = useNavigate();
-    const isInProgress = useSelector(selectInProgress);
-    const isCompleted = useSelector(selectCompleted);
     const progress = useSelector(selectChangeProgress);
     const complete = useSelector(selectChangeCompleted);
+    const selectGuest = useSelector(selectGuestInit);
+    const [orderCollection] = useCollection(query(collection(db, "orders")));
+    const [id, setId] = useState(null);
+    const [selectFromDocument] = useDocument(id && doc(db, "orders", id));
+    const inProgress = selectFromDocument?.data().process;
+    const isCompleted = selectFromDocument?.data().complete;
 
     const toHome = () => {
         navigate("/");
-    }
+    };
+
+    useEffect(() => {
+        orderCollection?.docs.forEach(doc => {
+            if(doc.data().email === selectGuest) {
+                setId(doc.id);
+                console.log(true, id, inProgress, isCompleted);
+            }
+        })
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectFromDocument]) 
 
     return ( 
         <>
             {
-                isInProgress && <ProcessModal />
+                inProgress && <ProcessModal id = { id } />
             }
             {
-                isCompleted && <SuccessModal />
+                isCompleted && <SuccessModal id = { id } />
             }
             <div className="update">
                 <div className="container">

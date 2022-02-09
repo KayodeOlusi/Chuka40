@@ -10,6 +10,7 @@ const NewContinental = () => {
     const [name, setName] = useState("");
     const [ingredient, setIngredient] = useState("");
     const [available, setAvailable] = useState("");
+    const [img, setImg] = useState("");
     const navigate = useNavigate();
     const user = useSelector(selectAdmin);
 
@@ -20,7 +21,8 @@ const NewContinental = () => {
         addDoc(collection(db, "continental"), {
             name: name,
             status: available,
-            toppings: ingredient
+            toppings: ingredient,
+            imageLink: img
         });
         navigate("/dashboard");
         console.log("successful");
@@ -65,6 +67,15 @@ const NewContinental = () => {
                             placeholder = "Portions" 
                             onChange = {e => setAvailable(e.target.value)} 
                             value = { available } 
+                        /> <br/>
+                        <label htmlFor="image" className = "lead">Image Link</label> <br/>
+                        <input 
+                            type = "text" 
+                            name = "image" 
+                            id = "image" 
+                            placeholder = "Image Link" 
+                            onChange = {e => setImg(e.target.value)} 
+                            value = { img } 
                         /> <br/>
                     </form>
                 </div>

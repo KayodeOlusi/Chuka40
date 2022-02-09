@@ -1,16 +1,18 @@
+import { doc, updateDoc } from "firebase/firestore";
 import { useDispatch } from "react-redux";
-import { holdChangeProgress, holdInProgress } from "../../features/guestSlice";
+import { holdChangeProgress } from "../../features/guestSlice";
+import { db } from "../../firebase";
 
-const ProcessModal = () => {
+const ProcessModal = ({ id }) => {
     const dispatch = useDispatch();
 
     const closeThisModal = () => {
-        dispatch(holdInProgress({
-            inProgress: false
-        }));
         dispatch(holdChangeProgress({
             changeProgress: true
         }));
+        updateDoc(doc(db, "orders", id), {
+            process: Boolean(false)
+        });
     } 
 
     return ( 

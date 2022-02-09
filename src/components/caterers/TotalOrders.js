@@ -4,25 +4,20 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../../firebase";
 import { Skeleton } from "@mui/material";
 import SingleOrder from './SingleOrder';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectCaterer } from '../../features/catererSlice';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { holdCompleted } from '../../features/guestSlice';
 
 const TotalOrders = () => {
     const [totalOrders, loading] = useCollection(collection(db, "orders"), orderBy("timestamp", "desc"));
     const caterer = useSelector(selectCaterer);
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     useEffect(() => {
         if(!caterer) {
             navigate("/caterers");
         };
-        dispatch(holdCompleted({
-            completed: false
-        }))
     });
 
     if(loading) {

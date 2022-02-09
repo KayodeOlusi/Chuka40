@@ -1,16 +1,18 @@
+import { doc, updateDoc } from "firebase/firestore";
 import { useDispatch } from "react-redux";
-import { holdChangeCompleted, holdCompleted } from "../../features/guestSlice";
+import { holdChangeCompleted } from "../../features/guestSlice";
+import { db } from "../../firebase";
 
-const SuccessModal = () => {
+const SuccessModal = ({ id }) => {
     const dispatch = useDispatch();
 
     const closeThisModal = () => {
-        dispatch(holdCompleted({
-            completed: false
-        }));
         dispatch(holdChangeCompleted({
             changeCompleted: true
         }));
+        updateDoc(doc(db, "orders", id), {
+            complete: Boolean(false)
+        });
     } 
 
     return ( 

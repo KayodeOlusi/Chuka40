@@ -1,14 +1,19 @@
-const CheckBox = ({ name, toppings, id, onChange, status, ...rest }) => {
+import Default from "../../../assets/Default.jpg";
+
+const CheckBox = ({ name, toppings, id, onChange, status, image,  ...rest }) => {
     return ( 
             <form className = "checkbox mt-3" onClick = { onChange }>
                 <div className = "available">
                     <label htmlFor = { name }>{ name }</label>
-                    <input { ...rest }  onChange={onChange} type = "checkbox" name = { name } id = { id } value = { name } className = "the-checkbox"/>
+                    <input { ...rest }  onChange = { onChange } type = "checkbox" name = { name } id = { id } value = { name } className = "the-checkbox"/>
                 </div>
                 <div className="desc">
-                    <p>{ toppings }</p>
-                    <p className="status">{ status }</p>
-                </div>   
+                    <div>
+                        <p>{ toppings }</p>
+                        <p className="status">{ status }</p>
+                    </div>
+                    <img src = { image } alt = { Default } />
+                </div> 
             </form> 
      );
 }

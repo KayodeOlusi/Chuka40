@@ -13,10 +13,10 @@ const SingleOrder = ({ id, tableNumber, meals, timestamp }) => {
         e.preventDefault();
         dispatch(holdOrderId({
             orderId: id
-        }))
+        }));
         dispatch(holdShowModal({
             showOrderModal: true
-        }))
+        }));
     }
 
     return ( 

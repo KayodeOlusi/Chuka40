@@ -1,11 +1,10 @@
 import { Cancel, CheckCircle } from "@mui/icons-material";
-import { doc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import moment from "moment";
 import { useDocument } from "react-firebase-hooks/firestore";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom"
 import { holdShowModal, selectOrderId } from "../../features/catererSlice";
-import { holdInProgress } from "../../features/guestSlice";
 import { db } from "../../firebase";
 
 const OrderModal = () => {
@@ -20,9 +19,9 @@ const OrderModal = () => {
         dispatch(holdShowModal({
             showOrderModal: false
         }));
-        dispatch(holdInProgress({
-            inProgress: true
-        }));
+        updateDoc(doc(db, "orders", checkTheOrderId), {
+            process: Boolean(true)
+        });
     }
 
     const cancelOrder = () => {

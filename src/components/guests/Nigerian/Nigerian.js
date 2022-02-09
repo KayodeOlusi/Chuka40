@@ -88,6 +88,7 @@ const Nigerian = () => {
                                     name = { doc.data().name }
                                     key = { doc.id }
                                     id = { doc.id }
+                                    image = { doc.data().imageLink }
                                     status = { doc.data().status }
                                     toppings = { doc.data().toppings }
                                     onChange= {() => onCheckStateChange(index)}
