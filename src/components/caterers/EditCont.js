@@ -2,7 +2,7 @@ import { Cancel, CheckCircle } from "@mui/icons-material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { holdShowEdit, selectEditId } from "../../features/catererSlice";
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, updateDoc } from "firebase/firestore"; 
 import { db } from "../../firebase";
 
 const EditModal = () => {
@@ -23,7 +23,7 @@ const EditModal = () => {
     };
 
     const confirmEdit = () => {
-        setDoc(doc(db, "continental", theEditedId), {
+        updateDoc(doc(db, "continental", theEditedId), {
             name: name,
             toppings: ingredient,
             status: available

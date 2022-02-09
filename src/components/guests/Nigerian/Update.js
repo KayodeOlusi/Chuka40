@@ -1,9 +1,9 @@
 import { Button } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ProcessModal from "../ProcessModal";
 import SuccessModal from "../SuccessModal";
-import { selectChangeCompleted, selectChangeProgress, selectGuestInit } from "../../../features/guestSlice";
+import { holdChangeCompleted, holdChangeProgress, selectChangeCompleted, selectChangeProgress, selectGuestInit } from "../../../features/guestSlice";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
 import { collection, doc, query } from "firebase/firestore";
 import { db } from "../../../firebase";
@@ -19,9 +19,12 @@ const Update = () => {
     const [selectFromDocument] = useDocument(id && doc(db, "orders", id));
     const inProgress = selectFromDocument?.data().process;
     const isCompleted = selectFromDocument?.data().complete;
+    const dispatch = useDispatch();
 
     const toHome = () => {
         navigate("/");
+        dispatch(holdChangeProgress({ changeProgress: false }));
+        dispatch(holdChangeCompleted({ changeCompleted: false }));
     };
 
     useEffect(() => {
@@ -32,7 +35,7 @@ const Update = () => {
             }
         })
         //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectFromDocument]) 
+    }) 
 
     return ( 
         <>
