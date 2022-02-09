@@ -27,11 +27,14 @@ export const catererSlice = createSlice({
     },
     holdEditId: (state, action) => {
       state.editId = action.payload.editId
+    },
+    logOut: (state) => {
+      state.catererDetails = null
     }
   }
 });
 
-export const { holdCatererDetails, holdOrderId, holdShowModal, holdShowEdit, holdEditId } = catererSlice.actions;
+export const { logOut, holdCatererDetails, holdOrderId, holdShowModal, holdShowEdit, holdEditId } = catererSlice.actions;
 export const selectCaterer = (state) => state.caterer.catererDetails;
 export const selectOrderId = (state) => state.caterer.orderId;
 export const selectCatererModal = (state) => state.caterer.showOrderModal;
