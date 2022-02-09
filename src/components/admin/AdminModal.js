@@ -11,7 +11,7 @@ const AdminModal = () => {
     const q = query(collection(db, "nigerian"));
     const emptyMeals = [];
     const dispatch = useDispatch()
-    const [nigerianDishes, loading] = useCollection(q);
+    const [nigerianDishes] = useCollection(q);
     const [checkState, setCheckState] = useState(Array(nigerianDishes?.docs.length).fill(false));
 
     useEffect(() => {
@@ -38,33 +38,6 @@ const AdminModal = () => {
         }));
     }; 
 
-    if(loading) {
-        return (
-            <div className = "loader">
-                <div className = "container mt-3">
-                    <Skeleton />
-                    <Skeleton animation = "wave" />
-                    <Skeleton animation = "wave" />
-                    <Skeleton animation = "wave" />
-                    <Skeleton animation = "wave" />
-                </div>
-                <div className = "container mt-3">
-                    <Skeleton />
-                    <Skeleton animation = "wave" />
-                    <Skeleton animation = "wave" />
-                    <Skeleton animation = "wave" />
-                    <Skeleton animation = "wave" />
-                </div>
-                <div className = "container mt-3">
-                    <Skeleton />
-                    <Skeleton animation = "wave" />
-                    <Skeleton animation = "wave" />
-                    <Skeleton animation = "wave" />
-                    <Skeleton animation = "wave" />
-                </div>
-            </div>
-        )
-    }
 
     return ( 
         <div className="admin-modal">
