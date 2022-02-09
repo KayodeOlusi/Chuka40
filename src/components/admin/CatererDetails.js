@@ -10,7 +10,7 @@ const CatererDetails = ({ name, email, password, gender, uid, meals, number }) =
                     <h6>{ email }</h6>
                 </div>
                 <div className="body">
-                    <p>Assigned Meals: { meals }</p>
+                    <p>Assigned Meals : { meals.map(meal => ( meal + ", " )) }</p>
                     <p>Gender: { gender }</p>
                     <p>Mobile Number: { number }</p>
                     <p>Password: { password }</p>
