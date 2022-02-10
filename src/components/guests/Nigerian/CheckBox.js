@@ -1,5 +1,3 @@
-import Default from "../../../assets/Default.jpg";
-
 const CheckBox = ({ name, toppings, id, onChange, status, image,  ...rest }) => {
     return ( 
             <form className = "checkbox mt-3" onClick = { onChange }>
@@ -12,7 +10,7 @@ const CheckBox = ({ name, toppings, id, onChange, status, image,  ...rest }) => 
                         <p>{ toppings }</p>
                         <p className="status">{ status }</p>
                     </div>
-                    <img src = { image } alt = { Default } />
+                    <img src = { image } alt = "Food" />
                 </div> 
             </form> 
      );

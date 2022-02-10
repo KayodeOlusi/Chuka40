@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { selectTableNumber, selectFoodTray, selectGuestEmail, holdGuestInit } from "../../../features/guestSlice";
 import { db } from "../../../firebase";
 
+
 const Order = () => {
     const orderedFood = useSelector(selectFoodTray);
     const tableNumber = useSelector(selectTableNumber);

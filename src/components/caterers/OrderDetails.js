@@ -2,9 +2,9 @@ import { Button } from "@mui/material";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import moment from "moment";
 import { useDocument } from "react-firebase-hooks/firestore";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { selectOrderId } from "../../features/catererSlice";
+import { selectOrderId, holdDelete } from "../../features/catererSlice";
 import { db } from "../../firebase";
 import CatererNav from "./CatererNav";
 
@@ -16,6 +16,7 @@ const OrderDetails = () => {
     const theTime = checkOrderDetails?.data().timestamp;
     const theMeals = checkOrderDetails?.data().meals;
     const theEmail = checkOrderDetails?.data().email;
+    const dispatch = useDispatch();
 
     const completeTheOrder = () => {
         addDoc(collection(db, "completed"), {
@@ -26,8 +27,8 @@ const OrderDetails = () => {
         });
         updateDoc(doc(db, "orders", checkTheOrderId), {
             complete: Boolean(true)
-        })
-
+        });
+        dispatch(holdDelete({ theId: checkTheOrderId }));
         navigate("/caterers/orders");
     };
 

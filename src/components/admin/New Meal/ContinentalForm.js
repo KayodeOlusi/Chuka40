@@ -64,7 +64,7 @@ const NewContinental = () => {
                             type = "text" 
                             name = "available" 
                             id = "available" 
-                            placeholder = "Portions" 
+                            placeholder = "Available or Not Available" 
                             onChange = {e => setAvailable(e.target.value)} 
                             value = { available } 
                         /> <br/>

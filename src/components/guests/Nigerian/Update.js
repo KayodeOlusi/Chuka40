@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ProcessModal from "../ProcessModal";
 import SuccessModal from "../SuccessModal";
-import { holdChangeCompleted, holdChangeProgress, selectChangeCompleted, selectChangeProgress, selectGuestInit } from "../../../features/guestSlice";
+import { holdChangeCompleted, holdChangeProgress, selectChangeCompleted, selectChangeProgress, selectFoodTray, selectGuestInit, selectTableNumber } from "../../../features/guestSlice";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
 import { collection, doc, query } from "firebase/firestore";
 import { db } from "../../../firebase";
@@ -14,6 +14,8 @@ const Update = () => {
     const progress = useSelector(selectChangeProgress);
     const complete = useSelector(selectChangeCompleted);
     const selectGuest = useSelector(selectGuestInit);
+    const tableNumber = useSelector(selectTableNumber);
+    const myFood = useSelector(selectFoodTray);
     const [orderCollection] = useCollection(query(collection(db, "orders")));
     const [id, setId] = useState(null);
     const [selectFromDocument] = useDocument(id && doc(db, "orders", id));
@@ -29,13 +31,13 @@ const Update = () => {
 
     useEffect(() => {
         orderCollection?.docs.forEach(doc => {
-            if(doc.data().email === selectGuest) {
+            if((doc.data().email === selectGuest) && (doc.data().table === tableNumber)) {
                 setId(doc.id);
                 console.log(true, id, inProgress, isCompleted);
             }
         })
         //eslint-disable-next-line react-hooks/exhaustive-deps
-    }) 
+    }); 
 
     return ( 
         <>
@@ -68,11 +70,18 @@ const Update = () => {
                             <p>Enjoy your meal!</p>
                         </div>
                     </div>
+                    <div className="my-order-details container">
+                        <h5>Name: { selectGuest }</h5>
+                        <h6>Table Number: { tableNumber }</h6>
+                        <hr />
+                        <p>{ myFood.map(food => food + "|") }</p>
+                    </div>
                 </div>
             </div>
+            <div className="my-order-space"></div>
             <div className="check-again text-center">
                 <Button onClick = { toHome } className = "check-again-btn" >
-                    Order Again
+                    Order Again 
                 </Button>
             </div>
         </>

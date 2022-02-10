@@ -1,23 +1,23 @@
 import CatererNav from './CatererNav';
-import { collection, orderBy } from "firebase/firestore";
+import { collection, orderBy, deleteDoc } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../../firebase";
 import { Skeleton } from "@mui/material";
 import SingleOrder from './SingleOrder';
 import { useSelector } from 'react-redux';
-import { selectCaterer } from '../../features/catererSlice';
+import { selectDelete } from '../../features/catererSlice';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const TotalOrders = () => {
     const [totalOrders, loading] = useCollection(collection(db, "orders"), orderBy("timestamp", "desc"));
-    const caterer = useSelector(selectCaterer);
+    const theIdDelete = useSelector(selectDelete);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(!caterer) {
-            navigate("/caterers");
-        };
+        if(theIdDelete) {
+            deleteDoc(db, "orders", theIdDelete)
+        }; 
     });
 
     if(loading) {

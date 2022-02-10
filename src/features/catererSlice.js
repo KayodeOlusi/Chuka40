@@ -5,7 +5,8 @@ const initialState = {
     orderId: null,
     showOrderModal: false,
     editModal: false,
-    editId: null
+    editId: null,
+    deleted: null
 };
 
 
@@ -30,12 +31,16 @@ export const catererSlice = createSlice({
     },
     logOut: (state) => {
       state.catererDetails = null
+    },
+    holdDelete: (state, action) => {
+      state.deleted = action.payload.deleted;
     }
   }
 });
 
-export const { logOut, holdCatererDetails, holdOrderId, holdShowModal, holdShowEdit, holdEditId } = catererSlice.actions;
+export const { holdDelete, logOut, holdCatererDetails, holdOrderId, holdShowModal, holdShowEdit, holdEditId } = catererSlice.actions;
 export const selectCaterer = (state) => state.caterer.catererDetails;
+export const selectDelete = (state) => state.caterer.deleted;
 export const selectOrderId = (state) => state.caterer.orderId;
 export const selectCatererModal = (state) => state.caterer.showOrderModal;
 export const selectEditModal = (state) => state.caterer.editModal;
