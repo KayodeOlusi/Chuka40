@@ -524,6 +524,21 @@
   border: none;
 }
 
+.admin-dashboard-panel .container .assigned-meals {
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.admin-dashboard-panel .container .assigned-meals h6 {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-dashboard-panel .container .assigned-meals p {
+  font-size: 10.5px;
+}
+
 .admin-dashboard-panel .container .details .food-category .inner-food {
   background-color: #9717b7;
   padding: 10px;
