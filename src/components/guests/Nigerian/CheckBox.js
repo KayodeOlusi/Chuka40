@@ -3,7 +3,7 @@ const CheckBox = ({ name, toppings, id, onChange, status, image,  ...rest }) => 
             <form className = "checkbox mt-3" onClick = { onChange }>
                 <div className = "available">
                     <label htmlFor = { name }>{ name }</label>
-                    <input { status === "Available" ? disabled : "" } { ...rest }  onChange = { onChange } type = "checkbox" name = { name } id = { id } value = { name } className = "the-checkbox"/>
+                    <input { status !== "Available" ? disabled : "" } { ...rest }  onChange = { onChange } type = "checkbox" name = { name } id = { id } value = { name } className = "the-checkbox"/>
                 </div>
                 <div className="desc">
                     <div>
