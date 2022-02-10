@@ -34,8 +34,9 @@ const SingleOrder = ({ id, tableNumber, meals, timestamp, completed }) => {
                 <div className="container">
                     <div className="header pb-3">
                         <h5>Table { tableNumber }</h5>
-                        <h6>{ meals.length } food items</h6>
+                        <h6>{ meals.length } food item(s)</h6>
                         <h6>{ moment(timestamp?.toDate()).calendar() }</h6>
+                        <p className="meal">{ meals.map(food => food + " | ") }</p>
                         { completed && <p className = "complete">Order Completed</p> }
                     </div>
                     <div className = "the-seperate">

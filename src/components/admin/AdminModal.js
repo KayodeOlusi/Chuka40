@@ -8,15 +8,15 @@ import { db } from "../../firebase";
 import AdminModalOptions from "./AdminModalOptions";
 
 const AdminModal = () => {
-    const q = query(collection(db, "nigerian"));
     const emptyMeals = [];
-    const dispatch = useDispatch()
-    const [nigerianDishes] = useCollection(q);
-    const [checkState, setCheckState] = useState(Array(nigerianDishes?.docs.length).fill(false));
+    const q = query(collection(db, "all"));
+    const dispatch = useDispatch();
+    const [allDishes] = useCollection(q);
+    const [checkState, setCheckState] = useState(Array(allDishes?.docs.length).fill(false));
 
     useEffect(() => {
-        setCheckState(Array(nigerianDishes?.docs.length).fill(false))
-    }, [nigerianDishes])
+        setCheckState(Array(allDishes?.docs.length).fill(false))
+    }, [allDishes])
 
     const onCheckStateChange = (position) => {
         const updatedCheckState = checkState.map((value, index) => (
@@ -26,9 +26,9 @@ const AdminModal = () => {
     };
 
     const addToMeals = () => {
-        const meals = nigerianDishes?.docs.filter((_, index) => checkState[index])
+        const meals = allDishes?.docs.filter((_, index) => checkState[index])
         meals.forEach(meal => {
-            emptyMeals.push(meal.data().name)
+            emptyMeals.push(meal.data().name);
         })
         dispatch(holdAssignedMeals({
             assignedMeals: [...emptyMeals]
@@ -46,7 +46,7 @@ const AdminModal = () => {
                     <h5>Pick Assigned Meals</h5>
                 </div>
                 {
-                    nigerianDishes?.docs.map((doc, index) => (
+                    allDishes?.docs.map((doc, index) => (
                         <AdminModalOptions
                             name = { doc.data().name }
                             key = { doc.id }

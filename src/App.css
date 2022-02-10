@@ -877,6 +877,11 @@
   font-weight: 600;
 }
 
+.single-order .container .header .meal {
+  font-size: 10.5px;
+  color: gray;
+}
+
 .single-order .container .single-order-btn {
   color: #050726;
   font-weight: 600;

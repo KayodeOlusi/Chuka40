@@ -24,6 +24,12 @@ const NewContinental = () => {
             toppings: ingredient,
             imageLink: img
         });
+        addDoc(collection(db, "all"), {
+            name: name,
+            status: available,
+            toppings: ingredient,
+            imageLink: img
+        });
         navigate("/dashboard");
         console.log("successful");
     }
