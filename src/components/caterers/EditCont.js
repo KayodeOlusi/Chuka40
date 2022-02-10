@@ -22,14 +22,12 @@ const EditModal = () => {
 
     const confirmEdit = () => {
         updateDoc(doc(db, "continental", theEditedId), {
-            name: name,
-            toppings: ingredient,
             status: available
         });
         dispatch(holdShowEdit({
             editModal: false
         }))
-    }
+    };
 
     return ( 
         <div className="edited-modal">
