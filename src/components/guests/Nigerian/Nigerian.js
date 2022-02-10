@@ -23,20 +23,25 @@ const Nigerian = () => {
     const onCheckStateChange = (position) => {
         const updatedCheckState = checkState.map((value, index) => (
             index === position ? !value : value
-        ))
-        setCheckState(updatedCheckState)
-    }
+        ));
+        setCheckState(updatedCheckState);
+    };
 
     const addToTray = () => {
         const trays = nigerianDishes?.docs.filter((_, index) => checkState[index])
-        trays.forEach(tray => {
-            emptyTray.push(tray.data().name)
+        if(trays.length === 0) {
+            return false
+        }
+        else {
+            trays.forEach(tray => {
+            emptyTray.push(tray.data().name);
         })
-        dispatch(holdFoodTray({
-            foodTray: [...emptyTray]
-        }))
-        navigate("/category/nigerian/order");
-    }
+            dispatch(holdFoodTray({
+                foodTray: [...emptyTray]
+            }))
+            navigate("/category/nigerian/order");   
+        }
+    };
 
     if(loading) {
         return (

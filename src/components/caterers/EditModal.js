@@ -6,8 +6,6 @@ import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 const EditModal = () => {
-    const [name, setName] = useState("");
-    const [ingredient, setIngredient] = useState("");
     const [available, setAvailable] = useState("");
     const dispatch = useDispatch();
     const theEditedId = useSelector(selectEditId);
@@ -24,8 +22,6 @@ const EditModal = () => {
 
     const confirmEdit = () => {
         updateDoc(doc(db, "nigerian", theEditedId), {
-            name: name,
-            toppings: ingredient,
             status: available
         });
         dispatch(holdShowEdit({
@@ -37,24 +33,6 @@ const EditModal = () => {
         <div className="edited-modal">
             <div className="edited-modal-container">
                 <form className="mt-5">
-                        <label htmlFor="name" className = "lead">Name of Food</label> <br/>
-                        <input
-                            type="text"
-                            name="name"
-                            id="name" 
-                            placeholder="Name" 
-                            value = { name } 
-                            onChange = {e => setName(e.target.value)} 
-                        /> <br/>
-                        <label htmlFor="ingredients" className = "lead">Food Ingredients</label> <br/>
-                        <input 
-                            type="text" 
-                            name="ingredients" 
-                            id="indredients" 
-                            placeholder="Seperate with a coma" 
-                            onChange = {e => setIngredient(e.target.value)} 
-                            value = { ingredient } 
-                        /> <br/>
                         <label htmlFor="available" className = "lead">Status</label> <br/>
                         <input 
                             type = "text" 

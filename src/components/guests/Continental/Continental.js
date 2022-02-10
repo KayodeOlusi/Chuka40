@@ -29,14 +29,18 @@ const Continental = () => {
     
     const addToTray = () => {
         const trays = continentalDishes?.docs.filter((_, index) => checkState[index])
-        trays.forEach(tray => {
-            emptyTray.push(tray.data().name)
-        })
-        dispatch(holdFoodTray({
-            foodTray: [...emptyTray]
-        }))
-        navigate("/category/nigerian/order");
-    }
+        if (trays.length === 0) {
+            return false;
+        } else {
+            trays.forEach(tray => {
+                emptyTray.push(tray.data().name)
+            })
+            dispatch(holdFoodTray({
+                foodTray: [...emptyTray]
+            }))
+            navigate("/category/nigerian/order");   
+        }
+    };
 
     if(loading) {
         return (
