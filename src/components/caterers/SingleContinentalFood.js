@@ -62,8 +62,9 @@ const SingleContinentalFood = () => {
                         ))
                     }
                 </div>
-                <CatererNav />
+                <div className="cont-space"></div>
             </div>
+            <CatererNav />
         </>
      );
 }
