@@ -2,9 +2,10 @@ import { collection, doc } from "firebase/firestore";
 import { useEffect } from "react";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
 import { useSelector } from "react-redux";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { selectCaterer } from "../../features/catererSlice";
-import { db } from "../../firebase";
+import { db, auth } from "../../firebase";
 import CatererNav from "./CatererNav";
 import { useState } from "react";
 
@@ -16,9 +17,10 @@ const CatererDashboard = () => {
     const assignedMeals = selectCatererDoc?.data().mealsAssigned;
     const caterer = useSelector(selectCaterer);
     const navigate = useNavigate();
+    const [user] = useAuthState(auth);
 
     useEffect(() => {
-        if(!caterer) {
+        if(!user) {
             navigate("/caterers");
         }
         catererDetails?.docs.forEach(doc => {
