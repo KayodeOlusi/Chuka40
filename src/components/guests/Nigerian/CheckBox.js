@@ -1,6 +1,6 @@
 const CheckBox = ({ name, toppings, id, onChange, status, image,  ...rest }) => {
     return ( 
-            <form className = "checkbox mt-3" onClick = { status === "Available" ? onChange : false }>
+            <form className = "checkbox mt-3" onClick = { status === "Available" ? onChange : console.log("no") }>
                 <div className = "available">
                     <label htmlFor = { name }>{ name }</label>
                     <input { ...rest } disabled = { status === "Available" ? false : true } onChange = { onChange } type = "checkbox" name = { name } id = { id } value = { name } className = "the-checkbox"/>
