@@ -7,7 +7,7 @@ import { selectCatererModal } from "../../features/catererSlice";
 import { db } from "../../firebase";
 import OrderModal from "./OrderModal";
 
-const SingleOrder = ({ id, tableNumber, meals, timestamp, complete }) => {
+const SingleOrder = ({ id, tableNumber, meals, timestamp, completed }) => {
     const dispatch = useDispatch();
     const modal = useSelector(selectCatererModal);
 
@@ -36,7 +36,7 @@ const SingleOrder = ({ id, tableNumber, meals, timestamp, complete }) => {
                         <h5>Table { tableNumber }</h5>
                         <h6>{ meals.length } food items</h6>
                         <h6>{ moment(timestamp?.toDate()).calendar() }</h6>
-                        { complete && <p className = "complete">Order Completed</p> }
+                        { completed && <p className = "complete">Order Completed</p> }
                     </div>
                     <div className = "the-seperate">
                         <Button className = "single-order-btn" onClick = { holdTheOrderId } >Check Order</Button>

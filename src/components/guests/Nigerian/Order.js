@@ -20,7 +20,8 @@ const Order = () => {
             meals: orderedFood,
             timestamp: serverTimestamp(),
             process: Boolean(false),
-            complete: Boolean(false)
+            complete: Boolean(false),
+            completed: Boolean(false)
         })
         navigate("/category/nigerian/order/update");
         dispatch(holdGuestInit({

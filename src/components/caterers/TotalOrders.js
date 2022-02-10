@@ -70,7 +70,7 @@ const TotalOrders = () => {
                                 key = { doc.id }
                                 id = { doc.id }
                                 timestamp = { doc.data().timestamp }
-                                complete = { doc.data().complete }
+                                completed = { doc.data().completed }
                            />
                         ))
                     }

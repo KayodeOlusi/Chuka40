@@ -26,7 +26,8 @@ const OrderDetails = () => {
             meals: theMeals
         });
         updateDoc(doc(db, "orders", checkTheOrderId), {
-            complete: Boolean(true)
+            complete: Boolean(true),
+            completed: Boolean(true)
         });
         dispatch(holdDelete({ deleted: checkTheOrderId }));
         navigate("/caterers/dashboard");

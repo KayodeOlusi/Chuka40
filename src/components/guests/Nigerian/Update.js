@@ -74,7 +74,7 @@ const Update = () => {
                         <h5>Name: { selectGuest }</h5>
                         <h6>Table Number: { tableNumber }</h6>
                         <hr />
-                        <p>{ myFood.map(food => food + "|") }</p>
+                        <p>{ myFood.map(food => food + " | ") }</p>
                     </div>
                 </div>
             </div>
