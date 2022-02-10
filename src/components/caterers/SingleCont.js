@@ -18,7 +18,7 @@ const SingleCont = ({ name, toppings, id }) => {
 
     const deleteMeal  = (e) => {
         e.preventDefault();
-        deleteDoc(doc(db, "nigerian", id));
+        deleteDoc(doc(db, "continental", id));
     }
 
     return ( 
