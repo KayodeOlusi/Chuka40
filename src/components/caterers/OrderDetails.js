@@ -28,8 +28,8 @@ const OrderDetails = () => {
         updateDoc(doc(db, "orders", checkTheOrderId), {
             complete: Boolean(true)
         });
-        dispatch(holdDelete({ theId: checkTheOrderId }));
-        navigate("/caterers/orders");
+        dispatch(holdDelete({ deleted: checkTheOrderId }));
+        navigate("/caterers/dashboard");
     };
 
     return ( 

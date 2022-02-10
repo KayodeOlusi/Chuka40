@@ -1,5 +1,5 @@
 import CatererNav from './CatererNav';
-import { collection, orderBy, deleteDoc } from "firebase/firestore";
+import { collection, orderBy } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../../firebase";
 import { Skeleton } from "@mui/material";
@@ -15,10 +15,8 @@ const TotalOrders = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(theIdDelete) {
-            deleteDoc(db, "orders", theIdDelete)
-        }; 
-    });
+        console.log(theIdDelete)
+    }, [theIdDelete]);
 
     if(loading) {
         return (
@@ -72,6 +70,7 @@ const TotalOrders = () => {
                                 key = { doc.id }
                                 id = { doc.id }
                                 timestamp = { doc.data().timestamp }
+                                complete = { doc.data().complete }
                            />
                         ))
                     }

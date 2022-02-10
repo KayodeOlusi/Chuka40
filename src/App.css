@@ -870,6 +870,20 @@
   border-radius: 47px;
 }
 
+.single-order .container .delete-order-btn {
+  color: #eb1e25;
+  font-weight: 600;
+  background-color: #dddddd;
+  font-size: 10px;
+  border-radius: 47px;
+} 
+
+.single-order .container .the-seperate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .caterer-store {
   background-color: #dddddd;
   height: 100vh;
