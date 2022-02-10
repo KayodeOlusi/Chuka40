@@ -1,21 +1,21 @@
 import { collection } from "firebase/firestore";
 import { useEffect } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { db, auth } from "../../firebase";
+import { selectCaterer } from "../../features/catererSlice";
+import { db } from "../../firebase";
 import CatererNav from "./CatererNav";
 
 const CatererDashboard = () => {
     const [totalOrders] = useCollection(collection(db, "orders"));
+    const caterer = useSelector(selectCaterer);
     const navigate = useNavigate();
-    const [user] = useAuthState(auth)
 
     useEffect(() => {
-        if(!user) {
+        if(!caterer) {
             navigate("/caterers");
-        } 
-        console.log(user) 
+        }  
     })
     
 
