@@ -71,6 +71,7 @@ const TotalOrders = () => {
                                 id = { doc.id }
                                 timestamp = { doc.data().timestamp }
                                 completed = { doc.data().completed }
+                                orderNumber = { doc.data().orderNum }
                            />
                         ))
                     }

@@ -1,29 +1,26 @@
 import { Button } from "@mui/material";
+import { collection, doc, query } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { useCollection, useDocument } from "react-firebase-hooks/firestore";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import ProcessModal from "../ProcessModal";
-import SuccessModal from "../SuccessModal";
-import { holdChangeCompleted, holdChangeProgress, selectChangeCompleted, selectChangeProgress } from "../../../features/guestSlice";
-import { useCollection, useDocument } from "react-firebase-hooks/firestore";
-import { collection, doc, query } from "firebase/firestore";
-import { db } from "../../../firebase";
-import { useEffect, useState } from "react";
+import { holdChangeCompleted, holdChangeProgress, selectChangeCompleted, selectChangeProgress } from "../../features/guestSlice";
+import { db } from "../../firebase";
+import ProcessModal from "./ProcessModal";
+import SuccessModal from "./SuccessModal";
 
-const Update = () => {
+const PreviousOrder = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [id, setId] = useState(null);
     const progress = useSelector(selectChangeProgress);
     const complete = useSelector(selectChangeCompleted);
-    const name = localStorage.getItem("name");
-    const table = localStorage.getItem("table"); 
-    const foodItems = localStorage.getItem("food");
-    const orderNumber = localStorage.getItem("orderNumber");
-    const singleMeal = JSON.parse(foodItems);
     const [orderCollection] = useCollection(query(collection(db, "orders")));
-    const [id, setId] = useState(null);
     const [selectFromDocument] = useDocument(id && doc(db, "orders", id));
     const inProgress = selectFromDocument?.data().process;
     const isCompleted = selectFromDocument?.data().complete;
-    const dispatch = useDispatch();
+    const theOrderNum = localStorage.getItem("previousNumber");
+    const theOrderNumber = JSON.parse(theOrderNum)
 
     const toHome = () => {
         navigate("/");
@@ -33,14 +30,12 @@ const Update = () => {
 
     useEffect(() => {
         orderCollection?.docs.forEach(doc => {
-            if((doc.data().email === name) && (doc.data().table === table)) {
+            if((doc.data().orderNum === theOrderNumber)) {
                 setId(doc.id);
                 console.log(true, id, inProgress, isCompleted);
             }
         })
-        console.log(foodItems)
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-    }); 
+    })
 
     return ( 
         <>
@@ -74,12 +69,12 @@ const Update = () => {
                         </div>
                     </div>
                     <div className="my-order-details container">
-                        <h5>Name: { name }</h5>
-                        <h6>Table Number: { table }</h6>
-                        <h6>My Order Number: { orderNumber }</h6>
+                        <h5>Name: { selectFromDocument?.data().email }</h5>
+                        <h6>Table Number: { selectFromDocument?.data().table }</h6>
+                        <h6>My Order Number: { selectFromDocument?.data().orderNum }</h6>
                         <p style= {{ color: "black", fontSize: "8px" }}>Note: USE ORDER NUMBER TO GET BACK TO THIS PAGE IF CLOSED</p>
                         <hr />
-                        <p>{ singleMeal }</p>
+                        <p>{ selectFromDocument?.data().meals.map(meal => " | " + meal + " | ") }</p>
                     </div>
                 </div>
             </div>
@@ -93,4 +88,4 @@ const Update = () => {
      );
 }
  
-export default Update;
+export default PreviousOrder;

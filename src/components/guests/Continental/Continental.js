@@ -38,6 +38,7 @@ const Continental = () => {
             dispatch(holdFoodTray({
                 foodTray: [...emptyTray]
             }))
+            localStorage.setItem("food", JSON.stringify(...emptyTray));
             navigate("/category/nigerian/order");   
         }
     };

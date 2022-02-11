@@ -28,6 +28,8 @@ const GuestModal = () => {
       setUsername("");
       setInput("");
       navigate("/category");
+      localStorage.setItem("name", username);
+      localStorage.setItem("table", input);
     }
 
     return ( 

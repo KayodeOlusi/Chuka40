@@ -2,8 +2,15 @@ import { Button } from "@mui/material";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { selectTableNumber, selectFoodTray, selectGuestEmail, holdGuestInit } from "../../../features/guestSlice";
+import { selectTableNumber, selectFoodTray, selectGuestEmail, holdGuestInit, holdGuestNum } from "../../../features/guestSlice";
 import { db } from "../../../firebase";
+
+const OrderNum = (min, max) => {
+    const first = (max - min) + 1;
+    const second = Math.random() * first;
+    const result = Math.floor(second) + min;
+    return result ;
+}
 
 
 const Order = () => {
@@ -12,6 +19,7 @@ const Order = () => {
     const guestEmail = useSelector(selectGuestEmail)
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const myOrderNum = OrderNum(10000, 50000);
 
     const submitOrder = () => {
         addDoc(collection(db, "orders"), {
@@ -21,12 +29,17 @@ const Order = () => {
             timestamp: serverTimestamp(),
             process: Boolean(false),
             complete: Boolean(false),
-            completed: Boolean(false)
+            completed: Boolean(false),
+            orderNum: myOrderNum
         })
         navigate("/category/nigerian/order/update");
         dispatch(holdGuestInit({
             guestInit: guestEmail
-        }))
+        }));
+        dispatch(holdGuestNum({
+            guestNum: myOrderNum
+        }));
+        localStorage.setItem("orderNumber", myOrderNum);
     }
 
     return ( 

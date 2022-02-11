@@ -23,12 +23,14 @@ import SingleNigerianFood from './components/caterers/SingleNigerianFood';
 import SingleContinentalFood from './components/caterers/SingleContinentalFood';
 import OrderDetails from './components/caterers/OrderDetails';
 import Completed from './components/caterers/Completed';
+import PreviousOrder from './components/guests/PreviousOrder';
 
 function App() {
   return (
     <div className="App">
         <Routes>
             <Route path = "/" element = { <Guest /> } />
+            <Route path = "/previous" element = { <PreviousOrder /> } />
             <Route path = "/modal" element = { <GuestModal /> } />
             <Route path = "/category" element = { <Categories /> } />
             <Route path = "/category/nigerian" element = { <Nigerian /> } />
