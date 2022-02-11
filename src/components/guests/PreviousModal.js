@@ -1,17 +1,34 @@
 import { Button } from "@mui/material";
 import { collection, query } from "firebase/firestore";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { holdGuestNum, holdPrevious } from "../../features/guestSlice";
+import { holdGuestNum, holdPrevious, selectPrevious } from "../../features/guestSlice";
 import { db } from "../../firebase";
 
 const PreviousModal = () => {
     const [previousNum, setPreviousNum] = useState("");
     const [orderCollection] = useCollection(query(collection(db, "orders")));
+    const thePrevious = useSelector(selectPrevious)
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const ref = useRef();
+
+    useEffect(() => {
+        const checkClicked = (e) => {
+          if(thePrevious && ref.current && !ref.current.contains(e.target)) {
+            dispatch(holdPrevious({
+              previous: false
+            }));
+          }
+        }
+        document.addEventListener("click", checkClicked);
+        return () => {
+          document.removeEventListener("click", checkClicked);  
+        }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [thePrevious])
 
     const checkPrevious = () => {
         orderCollection?.docs.forEach(doc => {
@@ -35,7 +52,7 @@ const PreviousModal = () => {
  
     return (  
         <div className="the-modal">
-           <div className = "modal-container">
+           <div className = "modal-container" ref = { ref }>
                 <div className = "header">
                     <h3>Location</h3>
                     <p>Please enter the order number</p>

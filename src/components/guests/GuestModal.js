@@ -1,14 +1,31 @@
 import { Button } from "@mui/material";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { holdGuestEmail, holdModalState, holdTableNumber } from "../../features/guestSlice";
+import { holdGuestEmail, holdModalState, holdTableNumber, selectModalState } from "../../features/guestSlice";
 
 const GuestModal = () => {
     const [input, setInput] = useState("");
+    const ref = useRef(); 
     const [username, setUsername] = useState("");
+    const theModalState = useSelector(selectModalState); 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    useEffect(() => {
+      const checkClicked = (e) => {
+        if(theModalState && ref.current && !ref.current.contains(e.target)) {
+          dispatch(holdModalState({
+            modalState: false
+          }));
+        }
+      }
+      document.addEventListener("click", checkClicked);
+      return () => {
+        document.removeEventListener("click", checkClicked);  
+      }
+      //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [theModalState])
 
     const addTableNumber = (e) => {
       e.preventDefault();
@@ -34,7 +51,7 @@ const GuestModal = () => {
 
     return ( 
         <div className="the-modal">
-           <div className = "modal-container">
+           <div className = "modal-container" ref = { ref }>
                 <div className = "header">
                     <h3>Location</h3>
                     <p>Please enter your email address and table number to continue</p>
