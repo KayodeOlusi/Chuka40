@@ -4,13 +4,13 @@ import { getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyALxgkrAJqxNKVeweMaTaYIJNleKnx6iQM",
-  authDomain: "ms-clients-2018.firebaseapp.com",
-  projectId: "ms-clients-2018",
-  storageBucket: "ms-clients-2018.appspot.com",
-  messagingSenderId: "142922582903",
-  appId: "1:142922582903:web:9b63470c358989dcd3af72",
-  measurementId: "G-TPL2XP3RM0"
+  apiKey: "AIzaSyBLfdT1ke5-lvm-y5hwejR6NkWXr2PIueo",
+  authDomain: "chuka-40.firebaseapp.com",
+  projectId: "chuka-40",
+  storageBucket: "chuka-40.appspot.com",
+  messagingSenderId: "473249674338",
+  appId: "1:473249674338:web:c08edfdcd78ff1db810d3b",
+  measurementId: "G-KT5KHMC1NV"
 };
 
 // Initialize Firebase
