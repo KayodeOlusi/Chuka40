@@ -25,6 +25,7 @@
 
 #### Caterers should see the food items that has been ordered by the guest with the guest identification details and information. Caterers are also able to delete food items that are out of stock and many other features.
 ![](./src/assets/all.png)
+[https://chuka@40.vercel.app/caterers](https://chuka@40.vercel.app/caterers)
 
 
 ## Admin Side Homepage
@@ -32,7 +33,10 @@
 
 #### The Admin is able to add food items to the food menu, create and assign meals to caterers and many other features
 ![](/src/assets/add.png)
+[https://chuka@40.vercel.app/admin](https://chuka@40.vercel.app/admin)
 
 ## Chuka@40 web-app has many other features. 
 [https://chuka@40.vercel.app](https://chuka@40.vercel.app)
+[https://chuka@40.vercel.app/admin](https://chuka@40.vercel.app/admin)
+[https://chuka@40.vercel.app/caterers](https://chuka@40.vercel.app/caterers)
 
